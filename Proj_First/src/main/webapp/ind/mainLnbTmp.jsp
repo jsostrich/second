@@ -14,7 +14,7 @@
 		<ul id="lnbMainMenu">
 	    	<c:if test="${empty uId_Session }">
 	    		<li class="lnbMainLi"><a href="#">로그인NO</a></li>
-				<li class="lnbMainLi"><a href="#">menu2</a></li>
+				<li class="lnbMainLi"><a href="#">어서오세요</a></li>
 				<li class="lnbMainLi"><a href="#">menu3</a></li>
 				<li class="lnbMainLi"><a href="#">menu4</a></li>
 				<li class="lnbMainLi"><a href="#">menu5</a></li>

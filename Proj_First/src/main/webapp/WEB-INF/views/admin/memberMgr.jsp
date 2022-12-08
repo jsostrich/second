@@ -92,6 +92,7 @@
 										</td>
 
 									</tr>
+									</form>
 								</c:forEach>
 							</c:if>
 							<tr id="listBtnArea">

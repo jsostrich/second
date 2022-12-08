@@ -24,6 +24,15 @@
 		]]>
 	</select>
 	
+	<!-- 회원리스트 보기 넘버 -->
+	<select id="memberListNum" parameterType="int" resultType="HashMap">
+		<![CDATA[
+			select * from member where uName like CONCAT('%', #{uName}, '%') order by num
+		]]>
+	</select>
+	
+	
+	
 	<!-- 정보수정 Select -->
 	<select id="selectmember" parameterType="String" resultType="HashMap">
 		<![CDATA[
@@ -31,15 +40,6 @@
 		]]>
 	</select>
 	
-	
-	<!-- 정보수정 Update -->
-	<update id="updatemember" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
-		<![CDATA[
-			update member set uEmail=#{uEmail}, gender=#{gender}, uBirthday=#{uBirthday}, 
-			                  uZipcode=#{uZipcode}, uAddr=#{uAddr}, uHobby=#{uHobby}, uJob=#{uJob} 
-			where uId=#{uId} and uPw=#{uPw}  
-		]]>
-	</update>
 	
 	
 	<!-- 회원탈퇴 Delete -->

@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="/resources/style/style_Template.css">
 <link rel="stylesheet" href="/resources/style/style_admin.css">
 <script src="/resources/source/jquery-3.6.0.min.js"></script>
-<script src="/resources/script/script_board.js"></script>
+<script src="/resources/script/script_admin.js"></script>
 </head>
 
 <body>
@@ -74,20 +74,21 @@
 									begin="${vo.nowPage*5 - 5}" end="${vo.nowPage*5 - 1}">
 
 									<tr class="prnTr">
-										<td><input type="checkbox" class="chkBox" value="${list.num }"></td>
-										<td onclick="read('${list.num }', '${vo.nowPage }')" class="number">
+										<td><input type="checkbox" name="chkBox" id = "chkBox"
+											value="${list.num }"></td>
+										<td onclick="read('${list.num }', '${vo.nowPage }')" >
 											${list.num } <!-- 회원번호 -->
 										</td>
-										<td onclick="read('${list.num }', '${vo.nowPage }')" class="id">
+										<td onclick="read('${list.num }', '${vo.nowPage }')" >
 											<!-- 아이디 --> ${list.uId }
 										</td>
-										<td onclick="read('${list.num }', '${vo.nowPage }')" class="name">
+										<td onclick="read('${list.num }', '${vo.nowPage }')" >
 											${list.uName }</td>
 										<!-- 이름 -->
-										<td onclick="read('${list.num }', '${vo.nowPage }')" class="email">
+										<td onclick="read('${list.num }', '${vo.nowPage }')" >
 											${list.uEmail }</td>
 										<!-- 이메일 -->
-										<td onclick="read('${list.num }', '${vo.nowPage }')" class="join">
+										<td onclick="read('${list.num }', '${vo.nowPage }')" >
 											<!-- 가입날짜 --> ${list.joinTM }
 										</td>
 
@@ -101,7 +102,6 @@
 										<button type="button" id="writeBtn" class="listBtnStyle">글쓰기</button>
 									</c:if></td>
 								<td colspan="3">
-								<form name="do" class="dFlex" id="do">
 										<div>
 											<select name="keyField" id="keyField">
 												<option value="delete"
@@ -114,7 +114,6 @@
 										<div>
 											<button type="button" id="doBtn" class="listBtnStyle">실행</button>
 											</div>
-									</form>
 									<form name="searchFrm" class="dFlex" id="searchFrm">
 										<div>
 											<select name="keyField" id="keyField">

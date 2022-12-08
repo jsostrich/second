@@ -31,6 +31,12 @@ public class AdminServiceimp implements AdminService{
 		return this.adminDao.memberListuName(uName);
 	}
 	
+	//유저 리스트 넘버 필터링
+	@Override
+	public Map<String, Object> memberListNum(int num) {
+		return this.adminDao.memberListNum(num);
+	}
+	
 	
 	
 

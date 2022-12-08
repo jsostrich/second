@@ -14,4 +14,8 @@ public interface AdminService {
 	//유저리스트 이름 필터링
 	List<Map<String, Object>> memberListuName(String uName);
 	
+	//유저리스트 넘버 필터링
+	Map<String, Object> memberListNum(int num);
+	
+	
 }

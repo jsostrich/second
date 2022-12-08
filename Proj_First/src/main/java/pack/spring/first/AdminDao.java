@@ -28,5 +28,9 @@ public class AdminDao {
 		return this.sessionTemplate.selectList("admin.memberListuName",uName);
 	}
 	
+	//유저 리스트보기 넘버 필터링
+	public Map<String, Object> memberListNum(int num){
+		return this.sessionTemplate.selectOne("admin.memberListNum",num);
+	}
 	
 }

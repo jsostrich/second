@@ -159,12 +159,23 @@ $(function(){
 	
 	
 	$("button#doBtn").click(function(){
-		let chkBox = $(".chkBox").val();
+	
+		let size = 'input[name="chkBox"]:checked';
+		let chksize = document.querySelectorAll(size);
+		let cnt = chksize.length;
+		
+		let numArr = [];
+		$("input[name='chkBox']:checked").each(function(){
+			let num=$(this).val();
+			numArr.push(num);
+		});
+		
+			
+		let keyField = $("#keyField").val();
+		alert(numArr);
 		if (keyField=="delete") {
-			location.href="/do?chkBox="+chkBox;
-		} else {
-			$("#searchFrm").submit();
-		}
+			location.href="/do?chkBox="+numArr;
+		} 
 	});	
 	
 	

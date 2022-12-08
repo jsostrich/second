@@ -39,7 +39,11 @@
     			<h2 id="indexGuideMsg">
     			<c:if test="${empty uId_Session }">
     				작업 중(회원인증, BBS 등)<br> 
+<<<<<<< HEAD
     				메인에 노출하고 싶은 결과를 출력!!!!!!!!!@
+=======
+    				메인에 노출하고 싶은 결과를 출력!!!!!!!
+>>>>>>> branch 'main' of https://github.com/jsostrich/second.git
     			</c:if>
     			<c:if test="${!empty uId_Session }">
     				<c:choose>

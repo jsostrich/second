@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="admin">
+	
+	<!-- 회원리스트 보기 -->
+	<select id="memberList" parameterType="HashMap" resultType="HashMap">
+		<![CDATA[
+			select * from member order by num
+		]]>
+	</select>
+	
+	<!-- 회원리스트 보기 아이디 필터링-->
+	<select id="memberListuId" parameterType="String" resultType="HashMap">
+		<![CDATA[
+			select * from member where uId like CONCAT('%', #{uId}, '%') order by num
+		]]>
+	</select>
+	
+	<!-- 회원리스트 보기 이름 필터링 -->
+	<select id="memberListuName" parameterType="String" resultType="HashMap">
+		<![CDATA[
+			select * from member where uName like CONCAT('%', #{uName}, '%') order by num
+		]]>
+	</select>
+	
+	<!-- 정보수정 Select -->
+	<select id="selectmember" parameterType="String" resultType="HashMap">
+		<![CDATA[
+			select * from member where uId = #{uId}
+		]]>
+	</select>
+	
+	
+	<!-- 정보수정 Update -->
+	<update id="updatemember" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
+		<![CDATA[
+			update member set uEmail=#{uEmail}, gender=#{gender}, uBirthday=#{uBirthday}, 
+			                  uZipcode=#{uZipcode}, uAddr=#{uAddr}, uHobby=#{uHobby}, uJob=#{uJob} 
+			where uId=#{uId} and uPw=#{uPw}  
+		]]>
+	</update>
+	
+	
+	<!-- 회원탈퇴 Delete -->
+	<delete id="deletemember" parameterType="HashMap" >
+		<![CDATA[
+			delete from member where uId=#{uId} and uPw=#{uPw }
+		]]>
+	</delete>
+	
+	
+	<!-- 아이디중복 체크 Count -->
+	<select id="checkId" parameterType="HashMap" resultType="HashMap" >
+		<![CDATA[
+			select count(*) from member where uid=#{uId} 
+		]]>
+	</select>
+	
+	
+	<!-- 집주소 List -->
+	<select id="zipcodeRead" parameterType="HashMap" resultType="HashMap">
+		<![CDATA[
+			select zipcode, area1, area2, area3, area4
+			 from tblZipcode where area3 like CONCAT('%', #{area3}, '%')
+		]]>
+	</select>
+	
+	
+</mapper>
+

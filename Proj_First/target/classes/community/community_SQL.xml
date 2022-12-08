@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+	
+	<!-- 로그인 Read -->
+	<select id="loginmember" parameterType="HashMap" resultType="HashMap">
+		<![CDATA[
+			select count(*) from member where uId = #{uId} and uPw = #{uPw}
+		]]>
+	</select>
+	
+	
+	<!-- 회원가입 Create -->
+	<insert id="insertmember" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
+		<![CDATA[
+			insert into member (uId, uPw, uName, uEmail, gender, uBirthday, uZipcode, uAddr, uHobby, uJob, joinTM, grade)   
+			values (#{uId}, #{uPw}, #{uName}, #{uEmail}, #{gender}, #{uBirthday}, #{uZipcode}, #{uAddr}, #{uHobby}, #{uJob}, now(), 2)
+		]]>
+	</insert>
+	
+	<!-- 정보수정 Select -->
+	<select id="selectmember" parameterType="String" resultType="HashMap">
+		<![CDATA[
+			select * from member where uId = #{uId}
+		]]>
+	</select>
+	
+	
+	<!-- 정보수정 Update -->
+	<update id="updatemember" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
+		<![CDATA[
+			update member set uEmail=#{uEmail}, gender=#{gender}, uBirthday=#{uBirthday}, 
+			                  uZipcode=#{uZipcode}, uAddr=#{uAddr}, uHobby=#{uHobby}, uJob=#{uJob} 
+			where uId=#{uId} and uPw=#{uPw}  
+		]]>
+	</update>
+	
+	
+	<!-- 회원탈퇴 Delete -->
+	<delete id="deletemember" parameterType="HashMap" >
+		<![CDATA[
+			delete from member where uId=#{uId} and uPw=#{uPw }
+		]]>
+	</delete>
+	
+	
+	<!-- 아이디중복 체크 Count -->
+	<select id="checkId" parameterType="HashMap" resultType="HashMap" >
+		<![CDATA[
+			select count(*) from member where uid=#{uId} 
+		]]>
+	</select>
+	
+	
+	<!-- 집주소 List -->
+	<select id="zipcodeRead" parameterType="HashMap" resultType="HashMap">
+		<![CDATA[
+			select zipcode, area1, area2, area3, area4
+			 from tblZipcode where area3 like CONCAT('%', #{area3}, '%')
+		]]>
+	</select>
+	
+	
+</mapper>
+

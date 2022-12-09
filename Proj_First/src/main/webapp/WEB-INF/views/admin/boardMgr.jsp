@@ -12,9 +12,9 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="/resources/style/style_Common.css">
 	<link rel="stylesheet" href="/resources/style/style_Template.css">
-	<link rel="stylesheet" href="/resources/style/style_BBS.css">
+	<link rel="stylesheet" href="/resources/style/style_admin.css">
 	<script src="/resources/source/jquery-3.6.0.min.js"></script>
-	<script src="/resources/script/script_BBS.js?ver=123"></script>
+	<script src="/resources/script/script_admin.js"></script>
 </head>
 
 <body>
@@ -82,7 +82,7 @@
 						<td class="subjectTd">
 							<c:if test="${list.depth !=0 }">
 								<c:forEach var="list2" items="${list }" varStatus="status"
-										begin="${list.count }" end="${list.depth-1}">
+										begin="${vo.nowPage*5 - 5 }" end="${vo.nowPage*5 - 1}">
 							&nbsp;&nbsp;<img src='/resources/images/replyImg.png' alt='reply'>
 								</c:forEach>
 								${list2.subject }

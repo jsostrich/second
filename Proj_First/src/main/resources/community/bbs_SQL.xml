@@ -28,14 +28,14 @@
 	<!-- 전체 게시글 보기 -->
 	<select id="list" resultType="HashMap">
 		<![CDATA[
-			select * from tblBoard order by ref , pos
+			select * from tblBoard order by grade, ref , pos
 		]]>
 	</select>
 	
 	<!-- 전체 게시글 사이즈 -->
 	<select id="listSize" resultType="int">
 		<![CDATA[
-			select count(*) from tblBoard order by ref  ,pos 
+			select count(*) from tblBoard order by ref , pos 
 		]]>
 	</select>
 	

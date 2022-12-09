@@ -328,7 +328,7 @@ public class MoveController {
 		String keyWord = "";
 		String keyField ="";
 		
-		System.out.println(String.valueOf(map.get("keyWord")));
+System.out.println(String.valueOf(map.get("keyWord")));
 		
 		if(String.valueOf(map.get("keyField")) !="") {
 			keyField =String.valueOf(map.get("keyField"));
@@ -345,28 +345,32 @@ public class MoveController {
 		}
 		if(keyWord.isEmpty()) {
 			System.out.println("키워드 없음");
-			list2 = this.adminService.memberList();
+			list2 = this.bbsService.list();
 			vo = new PagingVO(nowPage, list2.size(), 5, 5);
 			mav.addObject("vo",vo);
 			mav.addObject("list", list2);
 			System.out.println("키워드 없을때 listsize="+list2.size());
 		}
 		if(!keyWord.isEmpty()) {
-			if(keyField.equals("uId")) {
-				list2 = this.adminService.memberListuId(keyWord);
+			if(keyField.equals("subject")) {
+				list2 = this.bbsService.listSubject(keyWord);
 				vo = new PagingVO(nowPage, list2.size(), 5, 5);
-				System.out.println("키워드 uId listsize = "+list2.size());
+				System.out.println("키워드 subject listsize = "+list2.size());
 			}else if(keyField.equals("uName")) {
-				list2 = this.adminService.memberListuName(keyWord);
+				list2 = this.bbsService.listuName(keyWord);
 				vo = new PagingVO(nowPage, list2.size(), 5, 5);
 				System.out.println("키워드 uName listsize = "+list2.size());
+			}else {
+				list2 = this.bbsService.listContent(keyWord);
+				vo = new PagingVO(nowPage, list2.size(), 5, 5);
+				System.out.println("키워드 content listsize = "+list2.size());
 			}
 		}
 		
 		mav.addObject("map", map);
 		mav.addObject("vo", vo);
 		mav.addObject("list", list2);
-		mav.setViewName("admin/memberMgr.jsp?nowPage="+
+		mav.setViewName("admin/boardMgr.jsp?nowPage="+
 				Integer.toString(nowPage)+"&keyField="+keyField+"&keyWord="+keyWord);
 		return mav;
 	}

@@ -36,14 +36,21 @@ public class MemberController {
 		System.out.println("로그인 프로세스 시작");
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> map2 = this.memberService.loginMember(map); 
-			String msg ="로그인 실패",url=""; 
+			String msg ="아이디나 비밀번호가 맞지 않습니다",url=""; 
 			if(map2.get("count(*)").toString().equals("1")) {
 				String uId = map.get("uId").toString();
 				System.out.println("uId ="+uId);
-				HttpSession session = request.getSession();
-				session.setAttribute("uId_Session", uId);
-				msg ="로그인 성공";
-				url ="/";
+				Map<String, Object>sang = this.memberService.selectMember(uId);
+				int sangtae = (int)sang.get("sangtae");
+				if(sangtae !=1) {
+					msg = "정지나 휴면, 탈퇴처리된 계정입니다. 관리자에게 문의하세요";
+					url ="/";
+				}else {
+					HttpSession session = request.getSession();
+					session.setAttribute("uId_Session", uId);
+					msg ="로그인 성공";
+					url ="/";
+				}
 			}
 		mav.addObject("msg",msg);
 		mav.addObject("url", url);

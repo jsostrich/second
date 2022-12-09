@@ -7,7 +7,7 @@
 	<insert id="write" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
 		<![CDATA[
 			insert into tblBoard (uId, uName, subject, content, ref, pos, depth, regTM, ip, readCnt, fileName, fileSize, grade, sign)   
-			values (#{uId}, #{uName}, #{subject}, #{content}, #{ref}, 0, 0, now(), #{ip}, 0, #{fileName}, #{fileSize}, 2, 1)
+			values (#{uId}, #{uName}, #{subject}, #{content}, #{ref}, 0, 0, now(), #{ip}, 0, #{fileName}, #{fileSize}, #{grade}, 1)
 		]]>
 	</insert>
 	

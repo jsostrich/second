@@ -128,9 +128,18 @@ public class MoveController {
 		String msg = "세션이 만료되었습니다. 메인페이지로 돌아갑니다.", url="/";
 		if(uId != null) {
 			Map<String, Object> map = this.bbsService.selectId(uId);
-			mav.addObject("member",map);
-			mav.addObject("ip",ip);
-			mav.setViewName("/bbs/write");
+			int sangtae = (int)map.get("sangtae");
+			if(sangtae ==1) {
+				mav.addObject("member",map);
+				mav.addObject("ip",ip);
+				mav.setViewName("/bbs/write");
+			}else {
+				msg = "정지나 휴면, 탈퇴처리된 계정입니다. 관리자에게 문의하세요";
+				url ="/list";
+				mav.addObject("msg",msg);
+				mav.addObject("url",url);
+				mav.setViewName("/message/message");
+			}
 		}else {
 			mav.addObject("msg",msg);
 			mav.addObject("url",url);

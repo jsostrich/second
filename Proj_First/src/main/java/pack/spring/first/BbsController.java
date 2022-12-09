@@ -70,7 +70,7 @@ public class BbsController {
 				// 입력값 가정 =>    ABC<p>가나다</p>
 				// UtilMgr.replace( ) 실행 후 content에 저장되는 값  ABC&lt;p>가나다&lt;p>
 			}
-			
+			Map<String, Object> grade = this.bbsService.selectId(multi.getParameter("uId"));
 			Map<String, Object> map = new HashMap<>();
 			map.put("uId", multi.getParameter("uId"));
 			map.put("uName", multi.getParameter("uName"));
@@ -80,6 +80,7 @@ public class BbsController {
 			map.put("ip", multi.getParameter("ip"));
 			map.put("fileName", fileName);
 			map.put("fileSize", fileSize);
+			map.put("grade", grade.get("grade").toString());
 			int result = this.bbsService.write(map);
 			if(result ==1) {
 				msg="게시글 작성 완료!";

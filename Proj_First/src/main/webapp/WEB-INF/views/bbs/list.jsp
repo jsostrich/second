@@ -71,7 +71,7 @@
 							<c:forEach var="list" items="${list }" varStatus="status"
 								begin="${vo.nowPage*5 - 5}" end="${vo.nowPage*5 - 1}">
 								<c:choose>
-									<c:when test="${list.sign == 2 }">
+									<c:when test="${list.sign == 1 }">
 										<tr class="prnTr" onclick="read('${list.num }', '${vo.nowPage }')">
 											<td><c:if test="${list.depth ==0 }">
 												${list.num }  <!-- 답변글이 아님을 의미함 -->
@@ -92,7 +92,7 @@
 									<c:otherwise>
 										<tr class="prnTr" >
 											<td><c:if test="${list.depth ==0 }">
-												${list.num }  <!-- 답변글이 아님을 의미함 -->
+												${list.num }  
 												</c:if></td>
 											<td class="subjectTd"><c:if test="${list.depth !=0 }">
 													<c:forEach var="list2" items="${list }" varStatus="status"

@@ -31,12 +31,11 @@
     		</div> 
 --%>
     		
-    		
 	    	<!-- 실제 작업 영역 시작 -->
     		<div id="contents" class="loginDiv">
-
+				<br><br><br><br>
 				<form id="loginFrm" name="loginFrm" method="post">
-	        
+	        	
 		        	<div id="loginArea">	        	
 		        		<div id="loginInput">
 		        			<input type="text" name="uId" placeholder="아이디 입력" id="uId">
@@ -44,6 +43,11 @@
 		        		</div>
 		        		
 		        		<button type="button" id="loginBtn">로그인</button>
+		        		
+		        		<div id="findInfo">
+			        		<span><a href="">아이디 찾기</a></span>&nbsp;|
+			        		<span><a href="">비밀번호 찾기</a></span>&nbsp;
+		        		</div>
 		        		
 		        	</div>
 		        	<!-- div#loginArea -->

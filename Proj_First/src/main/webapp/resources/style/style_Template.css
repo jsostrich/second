@@ -67,7 +67,7 @@ main#main>#lnb>#mainLNB li:hover>a {
 /*  템플릿 footer#footer 시작 */
 footer#footer a, 
 footer#footer address {
-	font-size: 13px;
+	font-size: 11px;
 	text-align: center;
 }
 
@@ -92,13 +92,12 @@ footer#footer address {
 }
 #footer>.dFlex>* {
 	margin: 0 10px;
-}
-#footer>.dFlex>*::before {
 	content: "ㆍ";
-	font-size: 20px;
-	font-weight: bold;
+	font-size: 12px;
 	position: relative;
 	top: 3px;
+}
+#footer>.dFlex>*::before {
 }
 /* 템플릿  footer#footer 끝 */
 

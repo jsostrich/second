@@ -369,6 +369,7 @@ div#wrap>main#main>div.loginDiv>form#loginFrm {
 	padding: 13px 16px;
 	margin-bottom: 7px;
 	display: block;
+	border : 1px solid #6b6b6b;
 }
 
 #main>.loginDiv>#loginFrm>#loginArea>#findInfo {
@@ -404,6 +405,68 @@ div#wrap>main#main>div.loginDiv>form#loginFrm {
 
 
 
+/*////////////////////////////////////////////////////////////////////*/
+/*/////////////// ID/PWD 찾기 시작 /member/findId.jsp //////////////// */
+/*////////////////////////////////////////////////////////////////////*/
+
+
+div#wrap>main#main>div.findDiv {
+	text-align: center; 
+	padding: 40px;
+}
+
+div#wrap>main#main>div.findDiv>form#findFrm {
+	
+	width: 400px;
+	padding: 20px;
+	
+	display: inline-block;
+	
+}
+
+#main>.findDiv>#findFrm p {
+	padding:0px;
+	margin: 0px;
+	text-align: left;
+	width: 320px;
+	margin-bottom: 5px;
+}
+
+#main>.findDiv>#findFrm input {
+	
+	width: 320px;
+	font-size: 14px;
+	padding: 13px 16px;
+	margin-right : auto;
+	margin-left : auto;
+	margin-bottom: 7px;
+	display: block;
+	border : 1px solid #6b6b6b;
+}
+
+#main>.findDiv>#findFrm button {
+	
+	width: 320px;
+	font-size: 14px;
+	padding: 15px 20px;
+	border: none;
+	margin-top: 17px;
+	margin-bottom: 7px;
+	margin-right : auto;
+	margin-left : auto;
+	cursor: pointer;
+	display: block;
+	background-color: #e7e7e7;
+}
+
+#main>.findDiv>#findFrm button:hover{
+	background-color: #8c8c8c;
+}
+
+
+/*////////////////////////////////////////////////////////////////////*/
+/*/////////////// ID/PWD 찾기 끝 /member/findId.jsp //////////////// */
+/*////////////////////////////////////////////////////////////////////*/
 
 
 

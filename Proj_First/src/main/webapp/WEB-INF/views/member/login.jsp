@@ -33,7 +33,9 @@
     		
 	    	<!-- 실제 작업 영역 시작 -->
     		<div id="contents" class="loginDiv">
-				<br><br><br><br>
+				<br><br><br>
+				<p style="font-size:20px; font-weight: 700; color:#6b6b6b;">회원 로그인</p>
+				<br>
 				<form id="loginFrm" name="loginFrm" method="post">
 	        	
 		        	<div id="loginArea">	        	
@@ -45,8 +47,8 @@
 		        		<button type="button" id="loginBtn">로그인</button>
 		        		
 		        		<div id="findInfo">
-			        		<span><a href="">아이디 찾기</a></span>&nbsp;|
-			        		<span><a href="">비밀번호 찾기</a></span>&nbsp;
+			        		<span><a href="/findId">아이디 찾기</a></span>&nbsp;|
+			        		<span><a href="/findPwd">비밀번호 찾기</a></span>&nbsp;
 		        		</div>
 		        		
 		        	</div>

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -44,7 +45,8 @@ public class MoveController {
 	@GetMapping(value = "/")
 	public ModelAndView index() {
 		ModelAndView mav = new ModelAndView();
-		String uId = (String)session.getAttribute("uId_Session");
+		String uId="";
+		uId = (String)session.getAttribute("uId_Session");
 		Map<String, Object> user = this.bbsService.selectId(uId);
 		mav.addObject("user", user);
 		mav.setViewName("/index");
@@ -110,7 +112,32 @@ public class MoveController {
 	}
 	
 	
+	// 아이디찾기로 이동 
+	@GetMapping(value="/findId")
+	public ModelAndView findId() {
+		ModelAndView mav = new ModelAndView();
+		System.out.println("아이디찾기 페이지 이동");
+		mav.setViewName("/member/findId");
+		return mav; 
+	}
 	
+	// 비밀번호 찾기로 이동 
+	@GetMapping(value = "/findPwd")
+	public ModelAndView findPwd() {
+		ModelAndView mav = new ModelAndView();
+		System.out.println("비밀번호 찾기로 이동");
+		mav.setViewName("/member/findPwd");
+		return mav;
+	}
+	
+	// 이메일확인 페이지로 이동 
+	@GetMapping(value = "/checkEmail")
+	public ModelAndView checkEmail() {
+		ModelAndView mav = new ModelAndView();
+		System.out.println("이메일인증 페이지로 이동");
+		mav.setViewName("/member/checkEmail");
+		return mav;
+	}	
 	
 	
 	

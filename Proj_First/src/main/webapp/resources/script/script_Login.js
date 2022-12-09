@@ -47,4 +47,34 @@ $(function(){
 		
 	}
 	
+	
+	/* 아이디찾기 버튼 전송 실행 */	
+	$("#findBtn").click(function(){		
+		fnFindSbm();		
+	});
+	
+	
+	function fnFindSbm() {
+		
+		let uName = $("#uName").val().trim();
+		$("#uName").val(uName);
+		let uEmail = $("#uEmail").val().trim();		
+		$("#uEmail").val(uEmail);
+		
+		
+		if (uName == "") {
+			$("#uName").focus();
+			return;
+		} else if (uEmail == "") {
+			alert("이메일주소를 입력해주세요.");
+			$("#uEmail").focus();
+			return;
+		} else {
+			$("#findFrm").submit();
+		}
+		
+		
+	}
+	
+	
 });

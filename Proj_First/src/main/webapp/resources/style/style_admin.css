@@ -30,31 +30,31 @@ div.bbsList th {
 }
 
 div.bbsList th:first-child{
-	width: 10%;
+	width: 48px;
 }
 
 div.bbsList th:nth-child(2) {
-	width: 10%;
+	width: 96px;
 }
 
 div.bbsList th:nth-child(3) {
-	width: 15%;
+	width: 84px;
 }
 
 div.bbsList th:nth-child(4) {
-	width: 10%;
+	width: 120px;
 }
 
 div.bbsList th:nth-child(5) {
-	width: 30%;
+	width: 216px;
 }
 
 div.bbsList th:nth-child(6) {
-	width: 15%;
+	width: 144px;
 }
 
-div.bbsList th:last-child {
-	width: 10%;
+div.bbsList th:nth-child(7) {
+	width: 240px;
 }
 
 div.bbsList td.spaceTd {
@@ -116,16 +116,18 @@ div.bbsList #searchFrm input {
 
 
 /* ㅇㅅㅇ;; */
-div.bbsList form#searchFrm {
+
+div.bbsList tr td span#userch{
 	justify-content: flex-end;
+	float: right;
 }
 
-div.bbsList form#searchFrm>div {
+div.bbsList tr td span#userch{
 	margin: 4px;
 }
 
-div.bbsList #searchFrm select, 
-div.bbsList #searchFrm input {
+div.bbsList tr td span#userch select, 
+div.bbsList tr td span#userch input {
 	font-size: 16px;
 	padding: 2px 6px;
 }

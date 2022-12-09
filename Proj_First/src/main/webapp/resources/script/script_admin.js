@@ -171,9 +171,7 @@ $(function(){
 		});
 		
 		let keyField = $("#keyField").val();
-		if (keyField=="delete") {
-			location.href="/memberDo?chkBox="+numArr;
-		} 
+		location.href="/memberDo?sangtae="+keyField+"&num="+numArr;
 	});	
 	
 	

@@ -85,6 +85,9 @@ public class MoveController {
 	@GetMapping(value = "/myPage")
 	public ModelAndView myPage() {
 		ModelAndView mav = new ModelAndView();
+		String uId = (String)session.getAttribute("uId_Session");
+		Map<String, Object> user = this.bbsService.selectId(uId);
+		mav.addObject("user", user);
 		mav.setViewName("/member/myPage");
 		return mav;
 	}

@@ -36,10 +36,10 @@ public class AdminServiceimp implements AdminService{
 		return this.adminDao.memberListNum(num);
 	}
 
-	//유저 정지시키기
+	//유저 관리
 	@Override
-	public int memberStop(int num) {
-		return this.adminDao.memberStop(num);
+	public int memberUpdate(Map<String, Object> map) {
+		return this.adminDao.memberUpdate(map);
 	}
 	
 	

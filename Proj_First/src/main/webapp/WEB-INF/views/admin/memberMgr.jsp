@@ -74,7 +74,7 @@
 								<c:forEach var="list" items="${list }" varStatus="status"
 									begin="${vo.nowPage*5 - 5}" end="${vo.nowPage*5 - 1}">
 
-									<tr class="prnTr">
+									<tr class="prnTr" >
 										<td><input type="checkbox" name="chkBox" id = "chkBox"
 											value="${list.num }"></td>
 										<td onclick="read('${list.num }', '${vo.nowPage }')" >
@@ -104,24 +104,22 @@
 								</c:forEach>
 							</c:if>
 							<tr id="listBtnArea">
-								<td colspan="2"><c:if test="${empty uId_Session }">
-										<button type="button" id="loginAlertBtn" class="listBtnStyle">글쓰기</button>
-									</c:if> <c:if test="${!empty uId_Session }">
-										<button type="button" id="writeBtn" class="listBtnStyle">글쓰기</button>
-									</c:if></td>
-								<td colspan="3">
-										<div>
-											<select name="keyField" id="keyField">
-												<option value="delete"
-													<c:if test="${map.keyField eq 'delete' }">selected	</c:if>>탈퇴처리
-												</option>
-												<option value="stop"
-													<c:if test="${map.keyField eq 'stop' }">selected	</c:if>>정지처리</option>
-											</select>
-										</div>
-										<div>
+								<td colspan="7">
+										<span id="userch">
 											<button type="button" id="doBtn" class="listBtnStyle">실행</button>
-											</div>
+										</span>
+										<span id="userch">
+											<select name="keyField" id="keyField">
+												<option value="4"
+													<c:if test="${map.keyField eq '4' }">selected	</c:if>>탈퇴처리	</option>
+												<option value="2"
+													<c:if test="${map.keyField eq '2' }">selected	</c:if>>정지처리</option>
+												<option value="1"
+													<c:if test="${map.keyField eq '1' }">selected </c:if>>복구처리</option>
+											</select>
+										</span>
+											<br><br>
+											
 									<form name="searchFrm" class="dFlex" id="searchFrm">
 										<div>
 											<select name="keyField" id="keyField">
@@ -162,7 +160,7 @@
 								</c:if>
 
 								<!-- 페이징(= 페이지 나누기) 시작 -->
-								<td colspan="5" id="pagingTd"><c:if
+								<td colspan="7" id="pagingTd"><c:if
 										test="${vo.totalPage!=0 }">
 										<c:if test="${vo.nowBlock>1 }">
 											<span class="moveBlockArea"

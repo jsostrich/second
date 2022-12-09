@@ -31,10 +31,10 @@
 		]]>
 	</select>
 	
-	<!-- 회원 정지 update -->
-	<update id="memberStop" parameterType="int" useGeneratedKeys="true" keyProperty="no">
+	<!-- 회원 처리 update -->
+	<update id="memberUpdate" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
 		<![CDATA[
-			update member set sangtae = 2 where num=#{num}
+			update member set sangtae = #{sangtae} where num=#{num}
 		]]>
 	</update>
 	

@@ -32,16 +32,16 @@ public class AdminController {
 		ModelAndView mav = new ModelAndView();
 		System.out.println("회원 정지기능 시작");
 		
-		String chkBox = (String)map.get("chkBox");
+		String chkBox = (String)map.get("num");
 		String numArr [] = null;
 		numArr = chkBox.split(",");
 		
-		String msg="처리 완료",url="/admin/memberMgr";
+		String msg="처리 완료",url="/memberMgr";
 		int [] num = new int[numArr.length];
 		for(int i =0;i<numArr.length;i++) {
-			num[i]= Integer.parseInt(numArr[i]);
+			map.replace("chkBox", numArr[i]);
 			
-			int result = this.adminService.memberStop(num[i]);
+			int result = this.adminService.memberUpdate(map);
 			
 			if(result==0) {
 				msg="처리 실패 / 처리실패한 회원 번호 기준 :"+num[i];

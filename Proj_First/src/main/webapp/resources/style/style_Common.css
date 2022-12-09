@@ -5,7 +5,7 @@
 
 /* div#wrap 시작 */
 div#wrap {
-    width: 1000px;
+    width: 1200px;
     padding: 4px;
     border: 1px solid #aaa;
     border-radius: 6px;
@@ -25,6 +25,8 @@ hr.sepLine {    /* Separate Line 경계선*/
 /*////////////////////////////////////////////////////////////////////*/
 /*////////// 회원가입 사용권 동의 시작 /member/joinAgreement ////////// */
 /*////////////////////////////////////////////////////////////////////*/
+
+
 
 div#wrap>main>div.joinAgree>div#chkAllArea {
 	font-size: 18px;
@@ -46,11 +48,11 @@ div#wrap>main>div.joinAgree>div#licenseArea>div.termArea {
 	margin-bottom: 40px;
 }
 #wrap>main>.joinAgree>#licenseArea>.termArea>h3 {
-	width: 940px;
+	width: 1100px;
 	margin: 5px 20px;
 }
 #wrap>main>.joinAgree>#licenseArea>.termArea>iframe {
-	width: 940px;
+	width: 1100px;
 	border: 1px solid #aaa;
 	margin: 5px 20px;
 }

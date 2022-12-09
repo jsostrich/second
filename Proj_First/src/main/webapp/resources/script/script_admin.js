@@ -170,11 +170,9 @@ $(function(){
 			numArr.push(num);
 		});
 		
-			
 		let keyField = $("#keyField").val();
-		alert(numArr);
 		if (keyField=="delete") {
-			location.href="/do?chkBox="+numArr;
+			location.href="/memberDo?chkBox="+numArr;
 		} 
 	});	
 	

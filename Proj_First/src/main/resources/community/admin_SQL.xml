@@ -31,41 +31,12 @@
 		]]>
 	</select>
 	
-	
-	
-	<!-- 정보수정 Select -->
-	<select id="selectmember" parameterType="String" resultType="HashMap">
+	<!-- 회원 정지 update -->
+	<update id="memberstop" parameterType="int" useGeneratedKeys="true" keyProperty="no">
 		<![CDATA[
-			select * from member where uId = #{uId}
+			update member set sangtae = 2 where num=#{num}
 		]]>
-	</select>
-	
-	
-	
-	<!-- 회원탈퇴 Delete -->
-	<delete id="deletemember" parameterType="HashMap" >
-		<![CDATA[
-			delete from member where uId=#{uId} and uPw=#{uPw }
-		]]>
-	</delete>
-	
-	
-	<!-- 아이디중복 체크 Count -->
-	<select id="checkId" parameterType="HashMap" resultType="HashMap" >
-		<![CDATA[
-			select count(*) from member where uid=#{uId} 
-		]]>
-	</select>
-	
-	
-	<!-- 집주소 List -->
-	<select id="zipcodeRead" parameterType="HashMap" resultType="HashMap">
-		<![CDATA[
-			select zipcode, area1, area2, area3, area4
-			 from tblZipcode where area3 like CONCAT('%', #{area3}, '%')
-		]]>
-	</select>
-	
+	</update>
 	
 </mapper>
 

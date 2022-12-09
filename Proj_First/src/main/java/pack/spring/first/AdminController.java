@@ -1,6 +1,6 @@
 package pack.spring.first;
 
-import java.util.List;
+import java.util.Arrays;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
@@ -24,22 +24,28 @@ public class AdminController {
 	@Autowired
 	ServletContext context;
 	
-	@GetMapping(value = "/do")
-	public ModelAndView memberListuName(@RequestParam Map<String, Object>map) {
-		System.out.println("회원 정지 기능 시작");
+	@GetMapping(value = "/memberDo")
+	public ModelAndView memberDo(@RequestParam Map<String, Object>map) {
 		ModelAndView mav = new ModelAndView();
+		System.out.println("회원 정지기능 시작");
 		
+		String chkBox = (String)map.get("chkBox");
 		String numArr [] = null;
-		String num  = (String)map.get("chkBox");
-		numArr = num.split(",");
+		numArr = chkBox.split(",");
 		
+		int [] num = new int[numArr.length];
 		for(int i =0;i<numArr.length;i++) {
-			mav.addObject("num"+i,numArr[i]);
+			num[i]= Integer.parseInt(numArr[i]);
+			
+			int result = 
 		}
-		mav.setViewName("admin/test");
+		
+		
+		
+		
+		
 		return mav;
 	}
-	
 	
 	
 }

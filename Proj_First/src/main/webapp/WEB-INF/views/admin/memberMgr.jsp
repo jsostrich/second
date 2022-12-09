@@ -58,15 +58,16 @@
 								<th>이름</th>
 								<th>이메일</th>
 								<th>가입날짜</th>
+								<th>상태<th>
 							</tr>
 							<tr>
-								<td colspan="5" class="spaceTd"></td>
+								<td colspan="7" class="spaceTd"></td>
 							</tr>
 						</thead>
 						<tbody>
 							<c:if test="${fn:length(list)==0 }">
 								<tr>
-									<td colspan="5">회원이 없습니다.</td>
+									<td colspan="7">회원이 없습니다.</td>
 								</tr>
 							</c:if>
 							<c:if test="${fn:length(list)!=0 }">
@@ -91,7 +92,14 @@
 										<td onclick="read('${list.num }', '${vo.nowPage }')" >
 											<!-- 가입날짜 --> ${list.joinTM }
 										</td>
-
+										<td onclick="read('${list.num }', '${vo.nowPage }')" >
+										<c:choose>
+											<c:when test="${list.sangtae eq 1 }">정상	</c:when>
+											<c:when test="${list.sangtae eq 2 }">정지</c:when>
+											<c:when test="${list.sangtae eq 3 }">휴면</c:when>
+											<c:otherwise>탈퇴</c:otherwise>
+										</c:choose>
+										</td>
 									</tr>
 								</c:forEach>
 							</c:if>

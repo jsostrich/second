@@ -14,8 +14,8 @@
 	<!-- 회원가입 Create -->
 	<insert id="insertmember" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
 		<![CDATA[
-			insert into member (uId, uPw, uName, uEmail, gender, uBirthday, uZipcode, uAddr, uHobby, uJob, joinTM, grade)   
-			values (#{uId}, #{uPw}, #{uName}, #{uEmail}, #{gender}, #{uBirthday}, #{uZipcode}, #{uAddr}, #{uHobby}, #{uJob}, now(), 2)
+			insert into member (uId, uPw, uName, uEmail, gender, uBirthday, uZipcode, uAddr, uHobby, uJob, joinTM, grade, sangtae)   
+			values (#{uId}, #{uPw}, #{uName}, #{uEmail}, #{gender}, #{uBirthday}, #{uZipcode}, #{uAddr}, #{uHobby}, #{uJob}, now(), 2, 1)
 		]]>
 	</insert>
 	

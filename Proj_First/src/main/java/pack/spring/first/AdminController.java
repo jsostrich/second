@@ -24,6 +24,9 @@ public class AdminController {
 	@Autowired
 	ServletContext context;
 	
+	@Autowired
+	AdminService adminService;
+	
 	@GetMapping(value = "/memberDo")
 	public ModelAndView memberDo(@RequestParam Map<String, Object>map) {
 		ModelAndView mav = new ModelAndView();
@@ -33,17 +36,21 @@ public class AdminController {
 		String numArr [] = null;
 		numArr = chkBox.split(",");
 		
+		String msg="처리 완료",url="/admin/memberMgr";
 		int [] num = new int[numArr.length];
 		for(int i =0;i<numArr.length;i++) {
 			num[i]= Integer.parseInt(numArr[i]);
 			
-			int result = 
+			int result = this.adminService.memberStop(num[i]);
+			
+			if(result==0) {
+				msg="처리 실패 / 처리실패한 회원 번호 기준 :"+num[i];
+				break;
+			}
 		}
-		
-		
-		
-		
-		
+		mav.addObject("msg",msg);
+		mav.addObject("url", url);
+		mav.setViewName("/message/message");
 		return mav;
 	}
 	

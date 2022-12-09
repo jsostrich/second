@@ -30,27 +30,31 @@ div.bbsList th {
 }
 
 div.bbsList th:first-child{
-	width: 20px;
-}
-
-div.bbsList th:last-child {
-	width: 80px;
+	width: 10%;
 }
 
 div.bbsList th:nth-child(2) {
-	width: 40px;
+	width: 10%;
 }
 
 div.bbsList th:nth-child(3) {
-	width: 60px;
+	width: 15%;
 }
 
 div.bbsList th:nth-child(4) {
-	width: 70px;
+	width: 10%;
 }
 
 div.bbsList th:nth-child(5) {
-	width: 60px;
+	width: 30%;
+}
+
+div.bbsList th:nth-child(6) {
+	width: 15%;
+}
+
+div.bbsList th:last-child {
+	width: 10%;
 }
 
 div.bbsList td.spaceTd {

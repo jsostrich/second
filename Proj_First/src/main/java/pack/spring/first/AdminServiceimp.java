@@ -16,7 +16,6 @@ public class AdminServiceimp implements AdminService{
 	@Override
 	public List<Map<String, Object>> memberList() {
 		return this.adminDao.memberList();
-				
 	}
 	
 	//유저 리스트 아이디 필터링
@@ -36,6 +35,13 @@ public class AdminServiceimp implements AdminService{
 	public Map<String, Object> memberListNum(int num) {
 		return this.adminDao.memberListNum(num);
 	}
+
+	//유저 정지시키기
+	@Override
+	public int memberStop(int num) {
+		return this.adminDao.memberStop(num);
+	}
+	
 	
 	
 	

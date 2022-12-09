@@ -17,5 +17,6 @@ public interface AdminService {
 	//유저리스트 넘버 필터링
 	Map<String, Object> memberListNum(int num);
 	
-	
+	//유저 정지시키디
+	int memberStop(int num);
 }

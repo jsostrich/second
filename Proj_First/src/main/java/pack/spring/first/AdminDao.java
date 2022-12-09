@@ -33,4 +33,9 @@ public class AdminDao {
 		return this.sessionTemplate.selectOne("admin.memberListNum",num);
 	}
 	
+	//유저 정지 시키기
+	public int memberStop(int num) {
+		return this.sessionTemplate.update("admin.memberStop",num);
+	}
+	
 }

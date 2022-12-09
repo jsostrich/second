@@ -109,8 +109,11 @@
 								</c:if>
 							</td>
 						</tr>
+					<tr>
+					<th>댓글</th>
+					</tr>
+					
 					</tfoot>
-					 
 				</table>
 				<input type="hidden" name="nowPage" 
 					value="${map.nowPage }" id="nowPage">

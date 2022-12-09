@@ -118,7 +118,7 @@
 				<input type="hidden" name="nowPage" 
 					value="${map.nowPage }" id="nowPage">
 				<input type="hidden" name="num" value="${map.num }" id="num">
-				
+				<input type="hidden" name="grade" value="${result.grade } " id="grade"> 				
 				<!-- 검색어전송 시작 -->
 				<input type="hidden" id="pKeyField" value="${map.keyField }">
 				<input type="hidden" id="pKeyWord" value="${map.keyWord }">

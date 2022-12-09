@@ -95,8 +95,8 @@
 	<!-- 답변 게시글 작성 -->
 	<insert id="replyProc" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
 		<![CDATA[
-			insert into tblBoard (uId, uName, content, subject, ref, pos, depth, regTM, readCnt, ip) 
-			values (#{uId} , #{uName}, #{content}, #{subject}, #{ref}, #{pos}+1, #{depth}+1, now(), 0, #{ip})
+			insert into tblBoard (uId, uName, content, subject, ref, pos, depth, regTM, readCnt, ip,grade, sign) 
+			values (#{uId} , #{uName}, #{content}, #{subject}, #{ref}, #{pos}+1, #{depth}+1, now(), 0, #{ip},#{grade},1)
 		]]>
 	</insert>
 </mapper>

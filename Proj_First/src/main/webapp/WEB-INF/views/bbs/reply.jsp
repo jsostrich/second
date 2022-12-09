@@ -99,6 +99,7 @@
 					
 					<input type="hidden" name="nowPage" value="${map.nowPage }" id="nowPage">
 					<input type="hidden" name="ip" value="${ip }">
+					<input type="hidden" name="grade" value="${read.grade } " id="grade">
 					
 					<!-- 검색어전송 시작 -->
 					<input type="hidden" name="keyField" id="keyField" value="${map.keyField }">

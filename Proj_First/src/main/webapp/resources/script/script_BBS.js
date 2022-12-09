@@ -107,12 +107,14 @@ $(function(){
 				
 		let p3 = $("#pKeyField").val().trim();  // p3 : keyField
 	    let p4 = $("#pKeyWord").val().trim();  // p4 : keyWord
+	    let p5 = $("#grade").val().trim();
 	
 		let url = "/reply?";
 			url += "num="+num;
 			url += "&nowPage="+nowPage;
 			url += "&keyField="+p3;
 	     	url += "&keyWord="+p4; 
+	     	url += "&grade="+p5;
 		location.href=url;
 	
 	});

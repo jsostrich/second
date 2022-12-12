@@ -162,6 +162,7 @@ public class BbsController {
 		}
 	}
 	
+	//답변게시글
 	@GetMapping(value = "/replyProc")
 	public ModelAndView replyProc(@RequestParam Map<String, Object>map) {
 		System.out.println("게시글 답변 작성 시작");
@@ -170,8 +171,11 @@ public class BbsController {
 		
 		String msg ="답글 작성 실패",url="#";
 		if(cnt>0) {
-			msg="답글 작성 완료";
-			url="/list";
+			int cnt2 = this.bbsService.replyProc2(map);
+			if(cnt2>0) {
+				msg="답글 작성 완료";
+				url="/list";
+			}
 		}
 		mav.addObject("msg", msg);
 		mav.addObject("url", url);

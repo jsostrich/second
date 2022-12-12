@@ -77,4 +77,10 @@ public class BbsDao {
 		return this.sessionTemplate.insert("bbs.replyProc",map);
 	}
 	
+	//답변 달기 완료되면 글번호 끼우기
+	public int replyProc2(Map<String, Object>map) {
+		return this.sessionTemplate.update("bbs.replyProc2",map);
+	}
+	
+	
 }

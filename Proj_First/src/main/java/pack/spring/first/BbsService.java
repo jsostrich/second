@@ -40,4 +40,8 @@ public interface BbsService {
 	
 	//답변 달기
 	int replyProc(Map<String, Object>map);
+	
+	//답변 달고나서 글번호 끼워맞추기
+	int replyProc2(Map<String, Object>map);
+	
 }

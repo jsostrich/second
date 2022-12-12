@@ -84,4 +84,10 @@ public class BbsServiceimp implements BbsService{
 		return this.bbsDao.replyProc(map);
 	}
 	
+	//답변달고 글번호 끼워맟주기
+	@Override
+	public int replyProc2(Map<String, Object> map) {
+		return this.bbsDao.replyProc2(map);
+	}
+	
 }

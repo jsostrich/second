@@ -28,14 +28,14 @@
 	<!-- 전체 게시글 보기 -->
 	<select id="list" resultType="HashMap">
 		<![CDATA[
-			select * from tblBoard order by grade, ref , pos
+			select * from tblBoard order by ref, regtm
 		]]>
 	</select>
 	
 	<!-- 전체 게시글 사이즈 -->
 	<select id="listSize" resultType="int">
 		<![CDATA[
-			select count(*) from tblBoard order by ref , pos 
+			select count(*) from tblBoard order by ref , depth, pos; 
 		]]>
 	</select>
 	
@@ -88,15 +88,37 @@
 	<!-- 게시글 삭제 -->
 	<update id="deleteProc" parameterType="int">
 		<![CDATA[
-			update tblBoard set sign = #{sign} where num=#{num}
+			update tblBoard set sign = 2 where num=#{num}
 		]]>
 	</update>
 	
 	<!-- 답변 게시글 작성 -->
 	<insert id="replyProc" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
 		<![CDATA[
-			insert into tblBoard (uId, uName, content, subject, ref, pos, depth, regTM, readCnt, ip) 
-			values (#{uId} , #{uName}, #{content}, #{subject}, #{ref}, #{pos}+1, #{depth}+1, now(), 0, #{ip})
+			insert into tblBoard (uId, uName, content, subject, ref, pos, depth, regTM, readCnt, ip, grade, sign) 
+			values (#{uId} , #{uName}, #{content}, #{subject}, #{ref}, #{pos}+1, #{depth}+1, now(), 0, #{ip},#{grade},1)
 		]]>
 	</insert>
+	
+	<!-- 답변 게시글 작성2 끼워넣기 -->
+	<insert id="replyProc2" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
+		<![CDATA[
+			update tblBoard set depth = #{depth}+2
+			where ref = ${ref} and depth < depth
+		]]>
+	</insert>
+	
+	
+	<!-- 코멘트 작성 -->
+	<insert id="comment" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
+		<![CDATA[
+			insert into tblBoard (uId, uName, content, subject, ref, pos, depth, regTM, readCnt, ip, grade, sign) 
+			values (#{uId} , #{uName}, #{content}, #{subject}, #{ref}, #{pos}, #{depth}, now(), 0, #{ip},#{grade},1)
+		]]>
+	</insert>
+	
+	
+	
+	
+	
 </mapper>

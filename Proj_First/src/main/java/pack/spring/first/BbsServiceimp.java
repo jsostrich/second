@@ -60,6 +60,12 @@ public class BbsServiceimp implements BbsService{
 		return this.bbsDao.read(num);
 	}
 	
+	//게시글 읽기(끼워넣기용)
+	@Override
+	public Map<String, Object> read2(int num) {
+		return this.bbsDao.read2(num);
+	}
+	
 	//조회수 증가
 	@Override
 	public int cnt(int num) {
@@ -89,5 +95,13 @@ public class BbsServiceimp implements BbsService{
 	public int replyProc2(Map<String, Object> map) {
 		return this.bbsDao.replyProc2(map);
 	}
+
+	//답변 달기위한 뎁스 구하기
+	@Override
+	public Map<String, Object> maxpos(Map<String, Object>map) {
+		return this.bbsDao.maxpos(map);
+	}
+
+	
 	
 }

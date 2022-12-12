@@ -29,6 +29,9 @@ public interface BbsService {
 	// 게시글 읽기
 	Map<String, Object> read(int num);
 	
+	// 게시글 읽기(끼워넣기용)
+	Map<String, Object> read2(int num);
+	
 	// 게시글 카운트 증가
 	int cnt(int num);
 	
@@ -43,5 +46,8 @@ public interface BbsService {
 	
 	//답변 달고나서 글번호 끼워맞추기
 	int replyProc2(Map<String, Object>map);
+	
+	//답변 달기위한 포스 구하기
+	Map<String, Object> maxpos(Map<String, Object>map);
 	
 }

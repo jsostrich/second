@@ -28,7 +28,7 @@
 	<!-- 전체 게시글 보기 -->
 	<select id="list" resultType="HashMap">
 		<![CDATA[
-			select * from tblBoard order by ref, regtm
+			select * from tblBoard order by ref , pos
 		]]>
 	</select>
 	
@@ -70,6 +70,13 @@
 		]]>
 	</select>
 	
+	<!-- 게시글 보기2 -->
+	<select id="read2" parameterType="int" resultType="HashMap">
+		<![CDATA[
+			select * from tblBoard where pos = #{pos} 
+		]]>
+	</select>
+	
 	<!-- 조회수 증가 -->
 	<update id="cnt" parameterType="int" >
 		<![CDATA[
@@ -100,11 +107,18 @@
 		]]>
 	</insert>
 	
+	<!-- 맥스 게시글 뎁스 -->
+	<select id="maxpos" parameterType="HashMap" resultType="HashMap">
+		<![CDATA[
+			select max(pos) from tblBoard where ref= #{ref} 
+		]]>
+	</select>
+	
 	<!-- 답변 게시글 작성2 끼워넣기 -->
 	<insert id="replyProc2" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
 		<![CDATA[
-			update tblBoard set depth = #{depth}+2
-			where ref = ${ref} and depth < depth
+			update tblBoard set pos = pos+1
+			where ref = ${ref} and pos > #{pos}
 		]]>
 	</insert>
 	

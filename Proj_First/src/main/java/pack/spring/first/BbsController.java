@@ -167,16 +167,44 @@ public class BbsController {
 	public ModelAndView replyProc(@RequestParam Map<String, Object>map) {
 		System.out.println("게시글 답변 작성 시작");
 		ModelAndView mav = new ModelAndView();
-		int cnt = this.bbsService.replyProc(map);
-		
-		String msg ="답글 작성 실패",url="#";
-		if(cnt>0) {
-			int cnt2 = this.bbsService.replyProc2(map);
+		String po ="";
+		if(String.valueOf(map.get("pos"))!=null) {
+			int pos = Integer.parseInt((String)map.get("pos"));
+			map.replace("pos", pos);
+		}else {
+			map.replace("pos", po);
+		}
+		String depth="";
+		if(String.valueOf(map.get("depth"))!=null) {
+			depth = String.valueOf(map.get("depth"));
+		}else {
+			map.replace("depth", depth);
+		}
+		System.out.println(map.get("ref").toString());
+		String msg ="답글 작성 실패",url="/list";
+		int cnt =0;
+		int cnt2 =0;
+		int depth2 = Integer.parseInt((String)map.get("depth"));
+		if(depth2!=0) {
+			cnt = this.bbsService.replyProc2(map);
+			cnt2 = this.bbsService.replyProc(map);
+			if(cnt>0 && cnt2>0) {
+				msg="답글 끼워넣기 완료";
+			}
+		}else {
+			Map<String, Object>max = this.bbsService.maxpos(map);
+			String maxpos = "";
+			if(String.valueOf(max.get("max(pos)"))!=null) {
+				map.replace("pos", max.get("max(pos)"));
+			}else {
+				map.replace("pos", maxpos);
+			}
+			cnt2 = this.bbsService.replyProc(map);
 			if(cnt2>0) {
 				msg="답글 작성 완료";
-				url="/list";
 			}
 		}
+		
 		mav.addObject("msg", msg);
 		mav.addObject("url", url);
 		mav.setViewName("/message/message");

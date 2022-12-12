@@ -57,6 +57,11 @@ public class BbsDao {
 		return this.sessionTemplate.selectOne("bbs.read", num);
 	}
 	
+	//게시글 읽기(끼워넣기용)
+	public Map<String, Object> read2(int num){
+		return this.sessionTemplate.selectOne("bbs.read", num);
+	}
+	
 	//게시글 조회수 증가
 	public int cnt(int num) {
 		return this.sessionTemplate.update("bbs.cnt", num);
@@ -75,6 +80,11 @@ public class BbsDao {
 	//답변 달기
 	public int replyProc(Map<String, Object>map) {
 		return this.sessionTemplate.insert("bbs.replyProc",map);
+	}
+	
+	//답변 달기위한 포스 구하기
+	public Map<String, Object> maxpos(Map<String, Object>map) {
+		return this.sessionTemplate.selectOne("bbs.maxpos",map);
 	}
 	
 	//답변 달기 완료되면 글번호 끼우기

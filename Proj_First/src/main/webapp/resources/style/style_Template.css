@@ -22,12 +22,13 @@ header#header {
 	align-items: center;	
 	justify-content: center;
 }
-#header>#gnb>#mainMenu>li:nth-child(2n-1) {
+/* #header>#gnb>#mainMenu>li:nth-child(2n-1) {
 	width: 100px;
-	/*border: 1px solid #000;*/
-}
+	border: 1px solid #000;
+} */
 #header>#gnb>#mainMenu>li:nth-child(2n) {
-	margin: 0 10px;
+	margin-left : 50px;
+	margin-right: 600px;
 }
 #header>#gnb>#mainMenu>li>a {
 	color: #555;
@@ -40,6 +41,56 @@ header#header {
 	font-weight: bold;
 }
 /* 템플릿  header#header 끝 */
+
+
+
+/* /////////////////////////////////////////////// */
+/* ///////// HEADER 아이콘 드랍박스 메뉴 ///////// */ 
+/* /////////////////////////////////////////////// */
+
+.dropdown{
+	position : relative;
+	display : inline-block;
+}
+
+.dropbtn_icon{
+	font-family : 'Material Icons';
+}
+.dropbtn{
+	cursor : pointer;
+	width:25px;
+}
+.dropdown-content{
+	display : none;
+	position : absolute;
+	z-index : 1; /*다른 요소들보다 앞에 배치*/
+	font-weight: 400;
+	background-color: #f9f9f9;
+	min-width : 150px;
+}
+
+.dropdown-content a{
+	display : block;
+	text-decoration : none;
+	color : rgb(37, 37, 37);
+	font-size: 12px;
+	padding : 12px 20px;
+}
+
+.dropdown-content a:hover{
+	background-color : #ececec
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+
+
+
+
+
+
 
 
 /*  템플릿 main#main nav#mainLNB 시작 */

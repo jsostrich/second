@@ -96,19 +96,20 @@ header#header {
 /*  템플릿 main#main nav#mainLNB 시작 */
 main#main>div#lnb>nav#mainLNB>ul#lnbMainMenu>li {
 	width: 140px;
-	border: 1px solid #000;
+	border-bottom: 1px solid #d6d6d6;
+	border-right: 1px solid #d6d6d6;
 }
 main#main>#lnb>#mainLNB a {
 	width: 140px;
 	height: 36px;
-	font-size: 18px;
+	font-size: 14px;
 	line-height: 36px;
-	text-align: right;
-	padding-right: 30px;
+	padding-left: 20px;
 	display: inline-block;
 }
 main#main>#lnb>#mainLNB li:hover>a {
-	font-weight: bold;
+	background-color : #ececec;
+	font-weight: 600;
 }
 /* 템플릿  main#main nav#mainLNB 끝 */
 

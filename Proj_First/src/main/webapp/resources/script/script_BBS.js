@@ -76,6 +76,24 @@ $(function(){
 	
 	/* 게시글 내용보기페이지에서 수정버튼 끝 /bbs/read.jsp */
 	
+	 /* 댓글 작업 */
+	 $(" td button#commentBtn").click(function(){
+	 	let nowPage = $("#nowPage").val();
+	 	let num =$("#num").val();
+	 	let c_comment = $("#c_comment").val();
+	 	let c_num = $("#num").val();
+	 	if(c_uId ==null){
+	 		alert("로그인은 하셨나요?");
+	 	}else{
+		 	let url = "/comment?";
+		 		url += "&c_comment="+c_comment;
+		 		url += "&c_num="+c_num;
+		 		url += "&num="+num;
+		 		url += "&nowPage="+nowPage;
+		 	location.href=url;
+	 	}
+	 });
+	 /* 댓글 작업 끝 */
 	
 	/* 게시글 수정페이지에서 수정내용 전송 시작 /bbs/modify.jsp */
 	$("td.update>button#modProcBtn").click(function(){

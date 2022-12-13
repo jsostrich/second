@@ -122,14 +122,11 @@
 									<div>
 										<select name="keyField" id="keyField">
 											<option value="subject"
-												<c:if test="${map.keyField eq 'subject' }">selected	</c:if>>제
-												목</option>
+												<c:if test="${map.keyField eq 'subject' }">selected	</c:if>>제목</option>
 											<option value="uName"
-												<c:if test="${map.keyField eq 'uName' }">selected	</c:if>>이
-												름</option>
+												<c:if test="${map.keyField eq 'uName' }">selected	</c:if>>이름</option>
 											<option value="content"
-												<c:if test="${map.keyField eq 'content' }">selected </c:if>>내
-												용</option>
+												<c:if test="${map.keyField eq 'content' }">selected </c:if>>내용</option>
 										</select>
 									</div>
 

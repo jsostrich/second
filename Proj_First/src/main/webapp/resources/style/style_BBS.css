@@ -347,6 +347,13 @@ main#main>div.bbsRead h2 {
 	cursor: pointer;
 }
 
+#main>.bbsRead tbody#readTblBody td button#commentBtn {
+	font-size: 16px;
+	font-weight: bold;
+	padding: 4px 20px;
+	cursor: pointer;
+}
+
 
 /*////////////////////////////////////////////////////////////////////*/
 /*///////////// BBS  게시글 상세보기 페이지 끝 /bbs/read.jsp ///////////// */

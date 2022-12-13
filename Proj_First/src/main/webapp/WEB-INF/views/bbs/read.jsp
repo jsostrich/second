@@ -75,7 +75,22 @@
 						<tr>
 							<td colspan="4" id="readContentTd"><pre>${result.content }
 							</pre></td>
-						</tr>					
+						</tr>
+						<tr>
+							<td colspan="4" > 댓글! </td>
+						</tr>
+						<tr>
+						<td >
+						ID : </td>
+						<td colspan="3" id="c_uId">${uId_Session }</td>
+						</tr>			
+						<tr>		
+						<td colspan="4" >
+						<textarea name="c_comment" style="width:600px;float: left;" 
+							id="c_comment">여기에 댓글 입력</textarea>
+						<button type="button" id="commentBtn" >댓글입력</button>
+						</td>
+						</tr>
 					</tbody>
 					 
 					<tfoot id="readTblFoot">	

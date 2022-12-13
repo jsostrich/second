@@ -27,6 +27,15 @@ public class BbsDao {
 		return  cnt;
 	}
 	
+	//댓글 맨끝번호 확인
+	public int commentnum(){
+		int cnt = 0;
+		if(this.sessionTemplate.selectOne("bbs.commentnum")!=null) {
+			cnt = this.sessionTemplate.selectOne("bbs.commentnum");
+		}
+		return  cnt;
+	}
+	
 	//글쓰기
 	public int write(Map<String, Object>map){
 		return this.sessionTemplate.insert("bbs.write",map);
@@ -59,7 +68,7 @@ public class BbsDao {
 	
 	//게시글 읽기(끼워넣기용)
 	public Map<String, Object> read2(int num){
-		return this.sessionTemplate.selectOne("bbs.read", num);
+		return this.sessionTemplate.selectOne("bbs.read2", num);
 	}
 	
 	//게시글 조회수 증가
@@ -90,6 +99,11 @@ public class BbsDao {
 	//답변 달기 완료되면 글번호 끼우기
 	public int replyProc2(Map<String, Object>map) {
 		return this.sessionTemplate.update("bbs.replyProc2",map);
+	}
+	
+	//댓글달기
+	public int comment(Map<String, Object>map) {
+		return this.sessionTemplate.insert("bbs.comment", map);
 	}
 	
 	

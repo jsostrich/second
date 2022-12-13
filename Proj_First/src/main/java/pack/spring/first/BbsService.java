@@ -10,6 +10,9 @@ public interface BbsService {
 
 	// 글 쓸때 MAXNUM(맨끝 글번호 몇번인지) 확인
 	int num();
+	
+	// 글 쓸때 MAXNUM(맨끝 글번호 몇번인지) 확인
+	int commentnum();
 
 	// 글쓰기
 	int write(Map<String, Object> map);
@@ -49,5 +52,9 @@ public interface BbsService {
 	
 	//답변 달기위한 포스 구하기
 	Map<String, Object> maxpos(Map<String, Object>map);
+	
+	//댓글달기
+	int comment(Map<String, Object>map);
+	
 	
 }

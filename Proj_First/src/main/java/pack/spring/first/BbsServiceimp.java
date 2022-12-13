@@ -24,6 +24,12 @@ public class BbsServiceimp implements BbsService{
 		return this.bbsDao.num();
 	}
 	
+	//댓글 페이지 끝번호 조회하기
+	@Override
+	public int commentnum() {
+		return this.bbsDao.commentnum();
+	}
+	
 	//글쓰기
 	@Override
 	public int write(Map<String, Object>map) {
@@ -101,6 +107,14 @@ public class BbsServiceimp implements BbsService{
 	public Map<String, Object> maxpos(Map<String, Object>map) {
 		return this.bbsDao.maxpos(map);
 	}
+
+	//댓글달기
+	@Override
+	public int comment(Map<String, Object> map) {
+		return this.bbsDao.comment(map);
+	}
+
+	
 
 	
 	

@@ -24,6 +24,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import lombok.val;
+
 @Controller
 public class BbsController {
 	
@@ -35,6 +37,9 @@ public class BbsController {
 	
 	@Autowired
 	ServletContext context;
+	
+	@Autowired
+	HttpServletRequest request;
 	
 	private static String saveFolder =
 			"D:\\openAPI\\git\\community\\Proj_First\\src\\main\\webapp\\resources\\images";
@@ -210,5 +215,44 @@ public class BbsController {
 		mav.setViewName("/message/message");
 		return mav;
 	}
+	
+	//댓글 달기
+	@GetMapping(value = "/comment")
+	public ModelAndView comment(@RequestParam Map<String, Object>map) {
+		System.out.println("댓글 달기 시작");
+		ModelAndView mav = new ModelAndView();
+		int max =this.bbsService.commentnum();
+		int ref = 1;
+		ref = max + 1;
+		session = request.getSession();
+		String uId = (String)session.getAttribute("uId_Session");
+		Map<String, Object> user = this.bbsService.selectId(uId);
+		map.put("c_uId", uId);
+		map.put("c_uName", user.get("uName"));
+		map.put("c_ref", ref);
+		map.put("c_grade", user.get("grade"));
+		
+		int cnt = this.bbsService.comment(map);
+		String keyField = String.valueOf(map.get("keyField"));
+		String keyWord = String.valueOf(map.get("keyWord"));
+		String num =map.get("num").toString();
+		String nowPage =map.get("nowPage").toString();
+		String msg="댓글 작성 실패"; 
+		String url="/read?num="+num;
+					url+="&nowPage="+nowPage;
+					url+="&keyField="+keyField;
+					url+= "&keyWord="+keyWord;
+		if(cnt>0) {
+			msg="댓글 작성 완료";
+		}
+		mav.addObject("msg", msg);
+		mav.addObject("url", url);
+		mav.setViewName("/message/message");
+		return mav;
+	}
+	
+	
+	
+	
 	
 }

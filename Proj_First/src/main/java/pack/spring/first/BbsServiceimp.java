@@ -114,11 +114,36 @@ public class BbsServiceimp implements BbsService{
 		return this.bbsDao.comment(map);
 	}
 	
+	//댓글 끼워넣기
+	@Override
+	public int commentProc(Map<String, Object> map) {
+		return this.bbsDao.commentProc(map);
+	}
+	
+	//댓글 맥스포스 찾기
+	@Override
+	public Map<String, Object> maxcpos(Map<String, Object> map) {
+		return this.bbsDao.maxcpos(map);
+	}
+	
 	//댓글 리스트보기
 	@Override
-	public List<Map<String, Object>> searchComment() {
-		return this.bbsDao.searchComment();
+	public List<Map<String, Object>> commentList() {
+		return this.bbsDao.commentList();
 	}
+	
+	//댓글 찾기
+	@Override
+	public Map<String, Object> searchComment(Map<String, Object> map) {
+		return this.bbsDao.searchComment(map);
+	}
+	
+	//댓글 수정하기
+	@Override
+	public int commentEdit(Map<String, Object> map) {
+		return this.bbsDao.commentEdit(map);
+	}
+
 
 	
 	

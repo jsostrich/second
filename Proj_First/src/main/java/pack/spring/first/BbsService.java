@@ -56,7 +56,19 @@ public interface BbsService {
 	//댓글달기
 	int comment(Map<String, Object>map);
 	
+	//댓글 끼워넣기
+	int commentProc(Map<String , Object>map);
+	
+	//댓글 맥스포스 찾기
+	Map<String, Object>maxcpos(Map<String, Object>map);
+	
 	//댓글 리스트보기
-	List<Map<String, Object>> searchComment();
+	List<Map<String, Object>> commentList();
+	
+	//댓글 찾기
+	Map<String, Object> searchComment(Map<String, Object>map);
+	
+	//댓글 수정하기
+	int commentEdit(Map<String, Object>map);
 	
 }

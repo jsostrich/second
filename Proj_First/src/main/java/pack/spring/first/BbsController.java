@@ -209,7 +209,6 @@ public class BbsController {
 				msg="답글 작성 완료";
 			}
 		}
-		
 		mav.addObject("msg", msg);
 		mav.addObject("url", url);
 		mav.setViewName("/message/message");
@@ -251,7 +250,22 @@ public class BbsController {
 		return mav;
 	}
 	
-	
+	//게시글 수정
+	@GetMapping(value = "/commentEdit")
+	public ModelAndView commentProc(@RequestParam Map<String, Object>map) {
+		System.out.println("댓글 수정 시작");
+		ModelAndView mav = new ModelAndView();
+		map.replace("num", map.get("c_num"));
+		int cnt = this.bbsService.commentEdit(map);
+		String msg  ="댓글 수정 실패", url="/list";
+		if(cnt>0) {
+			msg="댓글 수정 성공";
+		}
+		mav.addObject("msg", msg);
+		mav.addObject("url", url);
+		mav.setViewName("/message/message");
+		return mav;
+	}
 	
 	
 	

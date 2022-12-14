@@ -83,6 +83,7 @@ $(function(){
 	 	let num =$("#num").val();
 	 	let c_comment = $("#c_comment").val();
 	 	let c_num = $("#num").val();
+	 	
 	 	if(c_uId==""){
 	 		alert("로그인은 하셨나요?");
 	 	}else{
@@ -103,6 +104,7 @@ $(function(){
 	 	if(c_uId1==c_uId){
 		 	$(this).parent().parent().find("#c_comment").attr("readonly",false);
 		 	$(this).parent().parent().find("#editBtnOk").show();
+		 	$(this).css('display','none');
 	 	}else{
 	 		alert("댓글쓴 당사자만 쓸 수 있습니다");
 	 	}
@@ -115,7 +117,7 @@ $(function(){
 	 	let nowPage = $("#nowPage").val();
 	 	let num =$("#num").val();
 	 	let c_comment = $("#c_comment").val();
-	 	let c_num = $("#num").val();
+	 	let c_num = $("#c_num").val();
 	 	if(c_uId==""){
 	 		alert("로그인은 하셨나요?");
 	 	}else{

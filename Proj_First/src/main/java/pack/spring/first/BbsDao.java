@@ -106,10 +106,31 @@ public class BbsDao {
 		return this.sessionTemplate.insert("bbs.comment", map);
 	}
 	
-	//댓글 리스트 보기
-	public List<Map<String, Object>> searchComment(){
-		return this.sessionTemplate.selectList("bbs.searchComment");
+	//댓글 끼워넣기
+	public int commentProc(Map<String , Object>map) {
+		return this.sessionTemplate.update("bbs.commentProc", map);
 	}
+	
+	//댓글 맥스포스 찾기
+	public Map<String, Object>maxcpos(Map<String, Object>map){
+		return this.sessionTemplate.selectOne("bbs.maxcpos",map);
+	}
+	
+	//댓글 리스트 보기
+	public List<Map<String, Object>> commentList(){
+		return this.sessionTemplate.selectList("bbs.commentList");
+	}
+	
+	//댓글 찾기
+	public Map<String, Object> searchComment(Map<String, Object>map){
+		return this.sessionTemplate.selectOne("bbs.searchComment", map);
+	}
+	
+	//댓글 수정하기
+	public int commentEdit(Map<String, Object>map) {
+		return this.sessionTemplate.update("bbs.commentEdit", map);
+	}
+	
 	
 	
 }

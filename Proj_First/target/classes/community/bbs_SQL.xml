@@ -139,25 +139,39 @@
 	</insert>
 	
 	<!-- 코멘트 리스트 보기 -->
-	<select id="searchComment" resultType="HashMap">
+	<select id="commentList" resultType="HashMap">
 		<![CDATA[
 			select * from comment order by c_ref , c_pos 
 		]]>
 	</select>
 	
+	<!-- 코멘트 찾기 -->
+	<select id="searchComment" parameterType="HashMap" resultType="HashMap">
+		<![CDATA[
+			select * from comment where num=#{num} 
+		]]>
+	</select>
+	
 	<!-- 코멘트 수정하기 -->
-	<update id="editComment" parameterType="HashMap">
+	<update id="commentEdit" parameterType="HashMap">
 		<![CDATA[
 			update comment set c_comment=#{c_comment} where num=#{num}
 		]]>
 	</update>
 	
 	<!-- 답변 게시글 작성2 끼워넣기 -->
-	<insert id="commentProc2" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
+	<update id="commentProc" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
 		<![CDATA[
 			update tblBoard set c_pos = c_pos+1
 			where c_ref = ${c_ref} and c_pos > #{c_pos}
 		]]>
-	</insert>
+	</update>
+	
+	<!-- 맥스 댓글 포스 -->
+	<select id="maxcpos" parameterType="HashMap" resultType="HashMap">
+		<![CDATA[
+			select max(pos) from comment where c_ref= #{c_ref} 
+		]]>
+	</select>
 	
 </mapper>

@@ -241,7 +241,7 @@ public class MoveController {
 		int num = Integer.parseInt(map.get("num").toString());
 		System.out.println(num);
 		int cnt = this.bbsService.cnt(num);
-		List<Map<String, Object>>list = this.bbsService.searchComment();
+		List<Map<String, Object>>list = this.bbsService.commentList();
 		if(cnt>0) {
 			Map<String, Object>result = this.bbsService.read(num);
 			mav.addObject("result",result);

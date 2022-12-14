@@ -153,9 +153,9 @@
 	</update>
 	
 	<!-- 답변 게시글 작성2 끼워넣기 -->
-	<insert id="replyProc2" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
+	<insert id="commentProc2" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
 		<![CDATA[
-			update tblBoard set c_pos = pos+1
+			update tblBoard set c_pos = c_pos+1
 			where c_ref = ${c_ref} and c_pos > #{c_pos}
 		]]>
 	</insert>

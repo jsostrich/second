@@ -77,7 +77,28 @@
 							</pre></td>
 						</tr>
 						<tr>
-							<td colspan="4" > 댓글! </td>
+							<td colspan="4" > 댓글리스트 </td>
+						</tr>
+						<!-- 댓글 리스트 시작 -->
+						<c:forEach var="list" items="${list }" varStatus="cnt">
+						<tr >
+						<td >
+						ID : </td>
+						<td id="c_uId1">${list.c_uId }</td>
+						<td colspan="2" >
+						<input type="hidden" id="c_num" name="c_num" value="${list.num }">
+						<textarea name="c_comment" style="width:600px;float: left;" 
+							id="c_comment" readonly="readonly">${list.c_comment }</textarea>
+						<div><button type="button" id="editBtn" >수정하기</button></div>
+						<div><button type="button" id="editBtnOk" hidden="hidden">수정완료</button></div>
+						<div><button type="button" id="delBtnOk" >삭제하기</button></div>
+						</td>
+						</tr>			
+						</c:forEach>
+						<!-- 댓글 리스트 끝 -->
+						<!-- 댓글달기 -->
+						<tr>
+							<td colspan="4" > 댓글달기! </td>
 						</tr>
 						<tr>
 						<td >
@@ -91,6 +112,7 @@
 						<button type="button" id="commentBtn" >댓글입력</button>
 						</td>
 						</tr>
+						<!-- 댓글 달기 끝 -->
 					</tbody>
 					 
 					<tfoot id="readTblFoot">	

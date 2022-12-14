@@ -241,10 +241,12 @@ public class MoveController {
 		int num = Integer.parseInt(map.get("num").toString());
 		System.out.println(num);
 		int cnt = this.bbsService.cnt(num);
+		List<Map<String, Object>>list = this.bbsService.searchComment();
 		if(cnt>0) {
 			Map<String, Object>result = this.bbsService.read(num);
 			mav.addObject("result",result);
 		}
+		mav.addObject("list",list);
 		mav.addObject("map", map);
 		mav.setViewName("/bbs/read");
 		return mav;		

@@ -31,9 +31,11 @@
     		
     		
 	    	<!-- 실제 작업 영역 시작 -->
-    		<div id="contents" class="index">
+    		<div id="contents">
+    
+    			<h1>Main</h1>
+    
     			
-    <%-- 
     			<h2 id="indexGuideMsg">
     			<c:if test="${empty uId_Session }">
     				작업 중(회원인증, BBS 등)<br> 
@@ -50,23 +52,7 @@
     				</c:choose>
     			</c:if>
     			</h2>
-    --%>
-    
-    			<div class="innerContents">
-    				<div class="innerContents_2"><a href="#"> 공지사항 </a></div>
-    				<div class="innerContents_2">[글목록 불러오기]</div>
-    			</div>
-    			
-    			<div class="innerContents">
-    				<div class="innerContents_2"><a href="/list"> 일반게시판 </a></div>
-    				<div class="innerContents_2">[글목록 불러오기]</div>
-    			</div>
-    			
-    			<div class="innerContents">
-    				<div class="innerContents_2"><a href="#"> 이미지게시판 </a></div>
-    				<div class="innerContents_2">[이미지 불러오기]</div>
-    			</div>
-    			
+    		
     		</div>
     		
     		<!-- 실제 작업 영역 끝 -->

@@ -79,12 +79,12 @@ div#wrap>main>div.joinAgree>div#licenseArea>div.termArea {
 	padding: 6px 20px;
 	border: 1px solid #eee;
 	border-radius: 4px;
-	background-color: #c1c1c1;
+	background-color: #0080ff;
 	cursor: pointer;
 }
 
 #wrap>#joinFrm>#formArea>button:hover {
-	background-color: #a8a8a8;
+	color: #ececec;
 }
 /*////////////////////////////////////////////////////////////////////*/
 /*////// 회원가입 사용권 동의 끝 /member/joinAgreement.jsp /////// */

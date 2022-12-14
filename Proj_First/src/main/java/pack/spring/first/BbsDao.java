@@ -106,5 +106,10 @@ public class BbsDao {
 		return this.sessionTemplate.insert("bbs.comment", map);
 	}
 	
+	//댓글 리스트 보기
+	public List<Map<String, Object>> searchComment(){
+		return this.sessionTemplate.selectList("bbs.searchComment");
+	}
+	
 	
 }

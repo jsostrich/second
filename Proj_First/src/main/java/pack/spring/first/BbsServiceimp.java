@@ -113,8 +113,12 @@ public class BbsServiceimp implements BbsService{
 	public int comment(Map<String, Object> map) {
 		return this.bbsDao.comment(map);
 	}
-
 	
+	//댓글 리스트보기
+	@Override
+	public List<Map<String, Object>> searchComment() {
+		return this.bbsDao.searchComment();
+	}
 
 	
 	

@@ -78,11 +78,12 @@ $(function(){
 	
 	 /* 댓글 작업 */
 	 $(" td button#commentBtn").click(function(){
+	 	let c_uId =$("#c_uId").val();
 	 	let nowPage = $("#nowPage").val();
 	 	let num =$("#num").val();
 	 	let c_comment = $("#c_comment").val();
 	 	let c_num = $("#num").val();
-	 	if(c_uId ==null){
+	 	if(c_uId==""){
 	 		alert("로그인은 하셨나요?");
 	 	}else{
 		 	let url = "/comment?";
@@ -94,7 +95,40 @@ $(function(){
 	 	}
 	 });
 	 /* 댓글 작업 끝 */
-	
+	 
+	 /*댓글 수정 */
+	 $("td button#editBtn").click(function(){
+	 	let c_uId1 =$("#c_uId1").html();
+	 	let c_uId =$("#c_uId").html();
+	 	if(c_uId1==c_uId){
+		 	$(this).parent().parent().find("#c_comment").attr("readonly",false);
+		 	$(this).parent().parent().find("#editBtnOk").show();
+	 	}else{
+	 		alert("댓글쓴 당사자만 쓸 수 있습니다");
+	 	}
+	 	
+	 });
+	 
+	 
+	 $("td button#editBtnOk").click(function(){
+	 	let c_uId =$("#c_uId").html();
+	 	let nowPage = $("#nowPage").val();
+	 	let num =$("#num").val();
+	 	let c_comment = $("#c_comment").val();
+	 	let c_num = $("#num").val();
+	 	if(c_uId==""){
+	 		alert("로그인은 하셨나요?");
+	 	}else{
+		 	let url = "/commentEdit?";
+		 		url += "&c_comment="+c_comment;
+		 		url += "&c_num="+c_num;
+		 		url += "&num="+num;
+		 		url += "&nowPage="+nowPage;
+		 	location.href=url;
+	 	}
+	 });
+	 /*댓글 수정 끝*/
+	 
 	/* 게시글 수정페이지에서 수정내용 전송 시작 /bbs/modify.jsp */
 	$("td.update>button#modProcBtn").click(function(){
 		let subject = $("#subject").val().trim();

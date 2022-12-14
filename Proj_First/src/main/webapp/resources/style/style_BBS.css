@@ -353,6 +353,25 @@ main#main>div.bbsRead h2 {
 	padding: 4px 20px;
 	cursor: pointer;
 }
+#main>.bbsRead tbody#readTblBody td button#editBtn {
+	font-size: 12px;
+	font-weight: bold;
+	padding: 3px 15px;
+	cursor: pointer;
+}
+#main>.bbsRead tbody#readTblBody td button#delBtnOk {
+	font-size: 12px;
+	font-weight: bold;
+	padding: 3px 15px;
+	cursor: pointer;
+}
+#main>.bbsRead tbody#readTblBody td button#editBtnOk {
+	font-size: 12px;
+	font-weight: bold;
+	padding: 3px 15px;
+	cursor: pointer;
+}
+
 
 
 /*////////////////////////////////////////////////////////////////////*/

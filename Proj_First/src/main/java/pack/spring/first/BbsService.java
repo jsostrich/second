@@ -56,5 +56,7 @@ public interface BbsService {
 	//댓글달기
 	int comment(Map<String, Object>map);
 	
+	//댓글 리스트보기
+	List<Map<String, Object>> searchComment();
 	
 }

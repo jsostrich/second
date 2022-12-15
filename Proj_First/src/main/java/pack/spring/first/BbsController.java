@@ -41,6 +41,9 @@ public class BbsController {
 	@Autowired
 	HttpServletRequest request;
 	
+	@Autowired
+	HttpServletResponse resp;
+	
 	private static String saveFolder =
 			"D:\\openAPI\\git\\community\\Proj_First\\src\\main\\webapp\\resources\\images";
 	private static int maxsize = 20 *1024 *1024;
@@ -267,6 +270,31 @@ public class BbsController {
 		return mav;
 	}
 	
+	//대댓글달기 //대댓글은 끼워넣기 불가
+	@GetMapping(value = "/recomment")
+	public ModelAndView recomment(@RequestParam Map<String, Object>map) 
+			throws IOException {
+		System.out.println("대댓글 작성 시작");
+		ModelAndView mav = new ModelAndView();
+		session = request.getSession();
+		String uId = (String)session.getAttribute("uId_Session");
+		Map<String, Object> user = this.bbsService.selectId(uId);
+		Map<String, Object>map2 = this.bbsService.searchComment(map);
+		Map<String, Object>maxcpos = this.bbsService.maxcpos(map2);
+		map2.replace("c_pos", maxcpos.get("max(c_pos)"));
+		map2.replace("c_comment", map.get("recomment"));
+		map2.replace("c_uId", user.get("uId"));
+		map2.replace("c_uName", user.get("uName"));
+		int cnt = this.bbsService.recomment(map2);
+		String msg="대댓글 작성 실패",url="/read?num="+map.get("readnum");
+		if(cnt>0) {
+			msg="대댓글 작성 성공";
+		}
+		mav.addObject("msg",msg);
+		mav.addObject("url",url);
+		mav.setViewName("/message/message");
+		return mav;
+	}
 	
 	
 }

@@ -159,19 +159,27 @@
 		]]>
 	</update>
 	
-	<!-- 답변 게시글 작성2 끼워넣기 -->
-	<update id="commentProc" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
-		<![CDATA[
-			update tblBoard set c_pos = c_pos+1
-			where c_ref = ${c_ref} and c_pos > #{c_pos}
-		]]>
-	</update>
-	
 	<!-- 맥스 댓글 포스 -->
 	<select id="maxcpos" parameterType="HashMap" resultType="HashMap">
 		<![CDATA[
-			select max(pos) from comment where c_ref= #{c_ref} 
+			select max(c_pos) from comment where c_ref= #{c_ref} 
 		]]>
 	</select>
+	
+	<!-- 댓글 삭제하기 -->
+	<update id="commentDel" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
+		<![CDATA[
+			update comment set c_sign = 2 	where num=#{num}
+		]]>
+	</update>
+	
+	<!-- 대댓글 작성하기 -->
+	<insert id="recomment" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
+		<![CDATA[
+			insert into comment (c_uId, c_uName, c_comment, c_ref, c_pos, c_depth, c_regTM, c_ip, c_grade, c_sign,c_num) 
+			values (#{c_uId} , #{c_uName}, #{c_comment},#{c_ref}, #{c_pos}+1, 1, now(), #{c_ip}, #{c_grade},1,#{c_num})
+		]]>
+	</insert>
+	
 	
 </mapper>

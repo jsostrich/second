@@ -82,17 +82,38 @@
 						<!-- 댓글 리스트 시작 -->
 						<c:forEach var="list" items="${list }" varStatus="cnt">
 						<tr >
-						<td >
-						ID : </td>
-						<td id="c_uId1">${list.c_uId }</td>
-						<td colspan="2" >
-						<input type="hidden" id="c_num" name="c_num" value="${list.num }">
-						<textarea name="c_comment" style="width:600px;float: left;" 
-							id="c_comment" readonly="readonly">${list.c_comment }</textarea>
-						<div><button type="button" id="editBtn" >수정하기</button></div>
-						<div><button type="button" id="editBtnOk" hidden="hidden">수정완료</button></div>
-						<div><button type="button" id="delBtnOk" >삭제하기</button></div>
-						</td>
+						<c:choose>
+							<c:when test="${list.sign ==2 }">
+								<td>삭제된 댓글입니다</td>
+							</c:when>
+							<c:otherwise>
+								<td >
+								ID : </td>
+								<td id="c_uId1">${list.c_uId }</td>
+								<td colspan="2" >
+									<input type="hidden" id="c_num" name="c_num" value="${list.num }">
+									<textarea name="c_comment" style="width:550px;float: left;" 
+										id="c_comment" readonly="readonly">${list.c_comment }</textarea>
+										<br>&nbsp;
+									<div style="float: right;"><button type="button" id="editBtn" >수정하기</button>
+									<!-- 수정하기 -->
+									<button type="button" id="editBtnOk" hidden="hidden">수정완료</button>
+									<!-- 수정하기 끝 -->
+									<button type="button" id="delBtnOk" >삭제하기</button></div><br>
+									<button id="recomment">댓글 달기</button>
+									<!-- 대댓글달기 -->
+									<div id="recommentInsert" style="display: none">
+										<textarea name="recommentText" style="width:550px;float: left;" 
+											id="recommentText" ></textarea>	<br>&nbsp;
+										<div style="float: right;">
+											<button id="reBtn" >등록하기</button>
+											<button id="reBtnNo" >취소하기</button>
+										</div><br>
+									</div>
+								<!-- 대댓글달기 -->
+								</td>
+							</c:otherwise>
+						</c:choose>
 						</tr>			
 						</c:forEach>
 						<!-- 댓글 리스트 끝 -->

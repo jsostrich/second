@@ -131,6 +131,37 @@ $(function(){
 	 });
 	 /*댓글 수정 끝*/
 	 
+	 /* 댓글삭제 */
+	 
+	 
+	 
+	 
+	 
+	 
+	 /* 리댓글 */
+	  $("[id='recomment']").click(function(){
+	 	let re = $(this).parent().find("#c_comment").html();
+	 	$(this).next("#recommentInsert").show();
+	 	$(this).next("#recommentInsert").focus();
+	 }); 
+	 
+	  $("[id='reBtnNo']").click(function(){
+	 	$(this).parent().parent().hide();
+	 });
+	 
+	 $("[id='reBtn']").click(function(){
+	 	let num = $(this).parent().parent().parent().find("#c_num").val();
+	 	let reco = $(this).parent().parent().parent().find("#recommentText").val();
+	 	let readnum = $("#num").val();
+	 	alert(num);
+	 	alert(reco);
+	 	alert(readnum);
+	 	location.href="/recomment?num="+num+"&recomment="+reco+"&readnum="+readnum;
+	 });
+	 
+	 
+	 /* 리댓글 끝*/
+	 
 	/* 게시글 수정페이지에서 수정내용 전송 시작 /bbs/modify.jsp */
 	$("td.update>button#modProcBtn").click(function(){
 		let subject = $("#subject").val().trim();

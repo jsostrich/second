@@ -112,11 +112,12 @@ $(function(){
 	 });
 	 
 	 
-	 $("td button#editBtnOk").click(function(){
+	 $("[id='editBtnOk']").click(function(){
 	 	let c_uId =$("#c_uId").html();
 	 	let nowPage = $("#nowPage").val();
 	 	let num =$("#num").val();
-	 	let c_comment = $("#c_comment").val();
+	 	let c_comment = $(this).parent().parent().find("#c_comment").val();
+	 	alert(c_comment);
 	 	let c_num = $("#c_num").val();
 	 	if(c_uId==""){
 	 		alert("로그인은 하셨나요?");
@@ -132,6 +133,27 @@ $(function(){
 	 /*댓글 수정 끝*/
 	 
 	 /* 댓글삭제 */
+	 $("[id='delBtnOk']").click(function(){
+	 	let c_num = $(this).parent().parent().parent().find("#c_num").val();
+	 	let c_uId =$("#c_uId").html();
+	 	let num =$("#num").val();
+	 	if(c_uId==""){
+	 		alert("로그인은 하셨나요?");
+	 	}else{
+	 		let del = confirm("정말로 삭제하시겠어요?");
+	 		if(del){
+			 	let url = "/commentDel?";
+			 		url += "&c_num="+c_num;
+			 		url += "&num="+num;
+			 	location.href=url;
+	 		}else{
+	 			alert("취소하셨습니다");
+	 			return false;
+	 		}
+	 	}
+	 });
+	 
+	 /* 댓글삭제끝 */
 	 
 	 /* 리댓글 */
 	  $("[id='recomment']").click(function(){

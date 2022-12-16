@@ -297,5 +297,25 @@ public class BbsController {
 		return mav;
 	}
 	
+	//코멘트 삭제
+	@GetMapping(value = "/commentDel")
+	public ModelAndView commentDel(@RequestParam Map<String, Object>map) {
+		System.out.println("댓글 삭제 시작");
+		ModelAndView mav = new ModelAndView();
+		String num = (String)map.get("num");
+		map.replace("num", map.get("c_num"));
+		int cnt = this.bbsService.commentDel(map);
+		String msg="삭제 실패", url="/read?num="+num;
+		if(cnt>0) {
+			msg="삭제 완료";
+		}
+		mav.addObject("msg",msg);
+		mav.addObject("url",url);
+		mav.setViewName("/message/message");
+		return mav;
+	}
+	
+	
+	
 	
 }

@@ -83,7 +83,7 @@
 						<c:forEach var="list" items="${list }" varStatus="cnt">
 						<tr >
 						<c:choose>
-							<c:when test="${list.sign ==2 }">
+							<c:when test="${list.c_sign ==2 }">
 								<td>삭제된 댓글입니다</td>
 							</c:when>
 							<c:when test="${list.c_pos!=0 }">

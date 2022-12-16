@@ -84,7 +84,7 @@
 						<tr >
 						<c:choose>
 							<c:when test="${list.c_sign ==2 }">
-								<td>삭제된 댓글입니다</td>
+								<td colspan="4">삭제된 댓글입니다</td>
 							</c:when>
 							<c:when test="${list.c_pos!=0 }">
 							<td>댓글</td>

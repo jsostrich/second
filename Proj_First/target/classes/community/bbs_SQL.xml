@@ -141,7 +141,7 @@
 	<!-- 코멘트 리스트 보기 -->
 	<select id="commentList" resultType="HashMap">
 		<![CDATA[
-			select * from comment order by c_ref , c_pos 
+			select * from comment order by c_ref desc, c_pos 
 		]]>
 	</select>
 	

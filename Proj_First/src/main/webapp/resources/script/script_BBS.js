@@ -78,10 +78,10 @@ $(function(){
 	
 	 /* 댓글 작업 */
 	 $(" td button#commentBtn").click(function(){
-	 	let c_uId =$("#c_uId").val();
+	 	let c_uId =$("#c_uId").html();
 	 	let nowPage = $("#nowPage").val();
 	 	let num =$("#num").val();
-	 	let c_comment = $("#c_comment").val();
+	 	let c_comment = $("#c_commentIn").val();
 	 	let c_num = $("#num").val();
 	 	
 	 	if(c_uId==""){
@@ -133,11 +133,6 @@ $(function(){
 	 
 	 /* 댓글삭제 */
 	 
-	 
-	 
-	 
-	 
-	 
 	 /* 리댓글 */
 	  $("[id='recomment']").click(function(){
 	 	let re = $(this).parent().find("#c_comment").html();
@@ -153,9 +148,6 @@ $(function(){
 	 	let num = $(this).parent().parent().parent().find("#c_num").val();
 	 	let reco = $(this).parent().parent().parent().find("#recommentText").val();
 	 	let readnum = $("#num").val();
-	 	alert(num);
-	 	alert(reco);
-	 	alert(readnum);
 	 	location.href="/recomment?num="+num+"&recomment="+reco+"&readnum="+readnum;
 	 });
 	 

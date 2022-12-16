@@ -233,11 +233,12 @@ public class BbsController {
 		map.put("c_uName", user.get("uName"));
 		map.put("c_ref", ref);
 		map.put("c_grade", user.get("grade"));
+		String num =map.get("num").toString();
+		map.put("c_num", num);
 		
 		int cnt = this.bbsService.comment(map);
 		String keyField = String.valueOf(map.get("keyField"));
 		String keyWord = String.valueOf(map.get("keyWord"));
-		String num =map.get("num").toString();
 		String nowPage =map.get("nowPage").toString();
 		String msg="댓글 작성 실패"; 
 		String url="/read?num="+num;

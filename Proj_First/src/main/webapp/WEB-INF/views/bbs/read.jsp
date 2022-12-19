@@ -80,7 +80,7 @@
 							<td colspan="4" > 댓글리스트 </td>
 						</tr>
 						<!-- 댓글 리스트 시작 -->
-						<c:forEach var="list" items="${list }" varStatus="cnt">
+						<c:forEach var="list" items="${list }" >
 						<tr >
 						<c:choose>
 							<c:when test="${list.c_sign ==2 }">

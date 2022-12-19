@@ -138,10 +138,10 @@
 		]]>
 	</insert>
 	
-	<!-- 코멘트 리스트 보기 -->
-	<select id="commentList" resultType="HashMap">
+	<!-- 게시글의 코멘트 리스트 보기 -->
+	<select id="commentList" resultType="HashMap" parameterType="int">
 		<![CDATA[
-			select * from comment order by c_ref desc, c_pos 
+			select * from comment where c_num = #{c_num}  order by c_ref desc, c_pos 
 		]]>
 	</select>
 	

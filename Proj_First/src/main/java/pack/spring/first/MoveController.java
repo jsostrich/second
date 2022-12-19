@@ -241,11 +241,14 @@ public class MoveController {
 		int num = Integer.parseInt(map.get("num").toString());
 		System.out.println(num);
 		int cnt = this.bbsService.cnt(num);
-		List<Map<String, Object>>list = this.bbsService.commentList();
+		int c_num = Integer.parseInt(map.get("num").toString());
+		System.out.println(c_num);
+		List<Map<String, Object>>list = this.bbsService.commentList(c_num);
 		if(cnt>0) {
 			Map<String, Object>result = this.bbsService.read(num);
 			mav.addObject("result",result);
 		}
+		System.out.println(list.size());
 		mav.addObject("list",list);
 		mav.addObject("map", map);
 		mav.setViewName("/bbs/read");

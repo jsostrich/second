@@ -60,7 +60,7 @@ public interface BbsService {
 	Map<String, Object>maxcpos(Map<String, Object>map);
 	
 	//댓글 리스트보기
-	List<Map<String, Object>> commentList();
+	List<Map<String, Object>> commentList(int c_num);
 	
 	//댓글 찾기
 	Map<String, Object> searchComment(Map<String, Object>map);
@@ -73,5 +73,6 @@ public interface BbsService {
 	
 	//대댓글 작성하기
 	int recomment(Map<String, Object>map);
+
 	
 }

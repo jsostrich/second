@@ -112,8 +112,8 @@ public class BbsDao {
 	}
 	
 	//댓글 리스트 보기
-	public List<Map<String, Object>> commentList(){
-		return this.sessionTemplate.selectList("bbs.commentList");
+	public List<Map<String, Object>> commentList(int c_num){
+		return this.sessionTemplate.selectList("bbs.commentList", c_num);
 	}
 	
 	//댓글 찾기

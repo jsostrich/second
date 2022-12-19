@@ -123,8 +123,8 @@ public class BbsServiceimp implements BbsService{
 	
 	//댓글 리스트보기
 	@Override
-	public List<Map<String, Object>> commentList() {
-		return this.bbsDao.commentList();
+	public List<Map<String, Object>> commentList(int c_num) {
+		return this.bbsDao.commentList(c_num);
 	}
 	
 	//댓글 찾기
@@ -151,7 +151,5 @@ public class BbsServiceimp implements BbsService{
 		return this.bbsDao.recomment(map);
 	}
 
-
-	
 	
 }

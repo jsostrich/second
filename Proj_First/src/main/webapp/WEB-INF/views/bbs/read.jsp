@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -15,6 +14,7 @@
 	<link rel="stylesheet" href="/resources/style/style_BBS.css">
 	<script src="/resources/source/jquery-3.6.0.min.js"></script>
 	<script src="/resources/script/script_BBS.js"></script>
+	<script src="<c:url value='/jquery/jquery-1.11.1.js' />" type="text/javascript"></script>
 </head>
 
 <body>

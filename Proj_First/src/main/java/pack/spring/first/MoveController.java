@@ -419,7 +419,63 @@ System.out.println(String.valueOf(map.get("keyWord")));
 		return mav;
 	}
 	
-	
+	//갤러리 게시판 보기
+	@RequestMapping(value = "/imageGallery")
+	public ModelAndView galleryList(@RequestParam(required = false) 
+		Map<String, Object>map){
+		ModelAndView mav = new ModelAndView();
+		System.out.println("이미지 갤러리 리스트 페이지 이동");
+		
+		PagingVO vo = null;
+		String keyWord = "";
+		String keyField ="";
+		
+		System.out.println(String.valueOf(map.get("keyWord")));
+		
+		if(String.valueOf(map.get("keyField")) !="") {
+			keyField =String.valueOf(map.get("keyField"));
+		}
+		List<Map<String, Object>>list2 = null;
+		if(String.valueOf(map.get("keyWord"))!="null") {
+			keyWord = String.valueOf(map.get("keyWord"));
+			System.out.println("대입된 키워드 " +String.valueOf(map.get("keyWord")));
+		}
+		
+		int nowPage =1; 
+		if(map.get("nowPage")!=null) {
+			nowPage = Integer.parseInt((String)map.get("nowPage"));
+		}
+		if(keyWord.isEmpty()) {
+			System.out.println("키워드 없음");
+			list2 = this.bbsService.list();
+			vo = new PagingVO(nowPage, list2.size(), 5, 5);
+			mav.addObject("vo",vo);
+			mav.addObject("list", list2);
+			System.out.println("키워드 없을때 listsize="+list2.size());
+		}
+		if(!keyWord.isEmpty()) {
+			if(keyField.equals("subject")) {
+				list2 = this.bbsService.listSubject(keyWord);
+				vo = new PagingVO(nowPage, list2.size(), 5, 5);
+				System.out.println("키워드 subject listsize = "+list2.size());
+			}else if(keyField.equals("uName")) {
+				list2 = this.bbsService.listuName(keyWord);
+				vo = new PagingVO(nowPage, list2.size(), 5, 5);
+				System.out.println("키워드 uName listsize = "+list2.size());
+			}else {
+				list2 = this.bbsService.listContent(keyWord);
+				vo = new PagingVO(nowPage, list2.size(), 5, 5);
+				System.out.println("키워드 content listsize = "+list2.size());
+			}
+		}
+		
+		mav.addObject("map", map);
+		mav.addObject("vo", vo);
+		mav.addObject("list", list2);
+		mav.setViewName("bbs/imageGallery.jsp?nowPage="+
+				Integer.toString(nowPage)+"&keyField="+keyField+"&keyWord="+keyWord);
+		return mav;
+	}
 	
 	
 	

@@ -30,7 +30,7 @@
 								<ul>
 									<li> <a href="#">공지사항</a> </li>
 									<li> <a href="/list">일반게시판</a> </li>
-									<li> <a href="/#">갤러리게시판</a> </li>
+									<li> <a href="/imageGallery">갤러리게시판</a> </li>
 								</ul>
 							</div>
 						</div>
@@ -75,7 +75,7 @@
 										<ul>
 											<li> <a href="#">공지사항</a> </li>
 											<li> <a href="/list">일반게시판</a> </li>
-											<li> <a href="/#">갤러리게시판</a> </li>
+											<li> <a href="/imageGallery">갤러리게시판</a> </li>
 										</ul>
 									</div>
 								</div>
@@ -116,7 +116,7 @@
 										<ul>
 											<li> <a href="#">공지사항</a> </li>
 											<li> <a href="/list">일반게시판</a> </li>
-											<li> <a href="/#">갤러리게시판</a> </li>
+											<li> <a href="/imageGallery">갤러리게시판</a> </li>
 										</ul>
 									</div>
 								</div>

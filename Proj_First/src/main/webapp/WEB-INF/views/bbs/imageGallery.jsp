@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="/resources/style/style_Common.css">
 <link rel="stylesheet" href="/resources/style/style_Template.css">
 <link rel="stylesheet" href="/resources/style/style_BBS.css">
+<link rel="stylesheet" href="/resources/style/style_imageGallery.css">
 <script src="/resources/source/jquery-3.6.0.min.js"></script>
 <script src="/resources/script/script_BBS.js?ver=123"></script>
 </head>
@@ -34,7 +35,7 @@
 
 
 			<!-- 실제 작업 영역 시작 -->
-			<div id="contents" class="bbsList">
+			<div id="contents" class="imageGallery">
 
 				<c:if test="${empty map.keyWord }">
 					<div id="pageInfo" class="dFlex">
@@ -48,19 +49,8 @@
 							${vo.nowPage } / ${vo.totalPage }</span>
 					</div>
 				</c:if>
+				
 				<table id="boardList">
-					<thead>
-						<tr>
-							<th>번호</th>
-							<th>제목</th>
-							<th>이름</th>
-							<th>날짜</th>
-							<th>조회수</th>
-						</tr>
-						<tr>
-							<td colspan="5" class="spaceTd"></td>
-						</tr>
-					</thead>
 					<tbody>
 						<c:if test="${fn:length(list)==0 }">
 							<tr>

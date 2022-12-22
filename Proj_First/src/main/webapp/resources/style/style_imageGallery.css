@@ -24,29 +24,25 @@ div.imageGallery div#pageInfo {
 div.imageGallery table#boardList {
 	width: 100%;
 	border-collapse: collapse;
-	display: flex;
+	
 }
 
-div.imageGallery th {
+div.imageGallery div#GarlleryList {
+	width: 100%;
+	border-collapse: collapse;
 	padding: 8px 2px;
 	font-size:13px;
 	background-color: #e9e9e9;
+	display: flex;
+	flex-wrap: wrap;
+	
 }
 
-div.imageGallery th:first-child, div.imageGallery th:last-child {
-	width: 70px;
-}
-
-div.imageGallery th:nth-child(3) {
-	width: 150px;
-}
-
-div.imageGallery th:nth-child(4) {
-	width: 140px;
-}
-
-div.imageGallery td {
-	font-size:13px;
+div.imageGallery div#GarlleryList div.prnTr{
+	width: 200px;
+	font-size:20px;
+	border: 2px solid #08f;
+	margin: 4px;
 }
 
 div.imageGallery td.spaceTd {
@@ -55,9 +51,6 @@ div.imageGallery td.spaceTd {
 	background-color: rgba(136, 136, 136, 0.2);
 }
 
-div.imageGallery tr.prnTr {
-	flex:1;
-}
 
 div.imageGallery tr.prnTr:hover {
 	background-color: rgba(0, 136, 255, 0.1);

@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="/resources/style/style_Common.css">
 <link rel="stylesheet" href="/resources/style/style_Template.css">
 <link rel="stylesheet" href="/resources/style/style_BBS.css">
+<link rel="stylesheet" href="/resources/style/style_imageGallery.css">
 <script src="/resources/source/jquery-3.6.0.min.js"></script>
 <script src="/resources/script/script_BBS.js?ver=123"></script>
 </head>
@@ -34,7 +35,7 @@
 
 
 			<!-- 실제 작업 영역 시작 -->
-			<div id="contents" class="bbsList">
+			<div id="contents" class="imageGallery">
 
 				<c:if test="${empty map.keyWord }">
 					<div id="pageInfo" class="dFlex">
@@ -48,69 +49,25 @@
 							${vo.nowPage } / ${vo.totalPage }</span>
 					</div>
 				</c:if>
-				<table id="boardList">
-					<thead>
-						<tr>
-							<th>번호</th>
-							<th>제목</th>
-							<th>이름</th>
-							<th>날짜</th>
-							<th>조회수</th>
-						</tr>
-						<tr>
-							<td colspan="5" class="spaceTd"></td>
-						</tr>
-					</thead>
-					<tbody>
-						<c:if test="${fn:length(list)==0 }">
-							<tr>
-								<td colspan="5">게시물이 없습니다.</td>
-							</tr>
-						</c:if>
-						<c:if test="${fn:length(list)!=0 }">
+				<div id="GarlleryList" >
+					<c:if test="${fn:length(list)==0 }">
+							<div>
+								<span>게시물이 없습니다.</span>
+							</div>
+					</c:if>
+					<c:if test="${fn:length(list)!=0 }">
 							<c:forEach var="list" items="${list }" varStatus="status"
-								begin="${vo.nowPage*5 - 5}" end="${vo.nowPage*5 - 1}">
-								<c:choose>
-									<c:when test="${list.sign != 2 }">
-										<tr class="prnTr" onclick="read('${list.num }', '${vo.nowPage }')">
-											<td><c:if test="${list.depth ==0 }">
-												${list.num }  <!-- 답변글이 아님을 의미함 -->
-												</c:if></td>
-											<td class="subjectTd"><c:if test="${list.depth !=0 }">
-													<c:forEach var="list2" items="${list }" varStatus="status"
-														begin="${list.count }" end="${list.depth-1}">
-									&nbsp;&nbsp;<img src='/resources/images/replyImg.png'
-															alt='reply'>
-													</c:forEach>
-												${list2.subject }
-											</c:if> ${list.subject }</td>
-											<td>${list.uName }</td>
-											<td>${list.regTM }</td>
-											<td>${list.readCnt }</td>
-										</tr>
-									</c:when>
-									<c:otherwise>
-										<tr class="prnTr" >
-											<td><c:if test="${list.depth ==0 }">
-												${list.num }  
-												</c:if></td>
-											<td class="subjectTd"><c:if test="${list.depth !=0 }">
-													<c:forEach var="list2" items="${list }" varStatus="status"
-														begin="${list.count }" end="${list.depth-1}">
-									&nbsp;&nbsp;<img src='/resources/images/replyImg.png'
-															alt='reply'>
-													</c:forEach>
-												${list2.subject }
-											</c:if> 삭제된 게시글입니다 </td>
-											<td>${list.uName }</td>
-											<td>${list.regTM }</td>
-											<td>${list.readCnt }</td>
-										</tr>
-									</c:otherwise>
-								</c:choose>
+								begin="${vo.nowPage*30 - 30}" end="${vo.nowPage*30 -1}">
+										<div class="prnTr" onclick="read('${list.num }', '${vo.nowPage }')">
+										<span>${list.subject }	</span><br>
+										<span>${list.uName }</span><br>
+										<span>${list.regTM }</span><br>
+										<span>${list.readCnt }</span>
+										</div>
 							</c:forEach>
-
 						</c:if>
+				</div>
+				
 						<tr id="listBtnArea">
 							<td colspan="2"><c:if test="${empty uId_Session }">
 									<button type="button" id="loginAlertBtn" class="listBtnStyle">글쓰기</button>
@@ -194,10 +151,6 @@
 									<b>[Paging Area]</b>
 								</c:if> <br></td>
 						</tr>
-
-					</tbody>
-				</table>
-
 
 			</div>
 			<!-- 실제 작업 영역 끝 -->

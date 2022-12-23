@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: whdtj
 Build-Jdk: 15
+=======
+Built-By: EZEN202
+Build-Jdk: 11
+>>>>>>> refs/remotes/origin/main
 Created-By: Maven Integration for Eclipse
 

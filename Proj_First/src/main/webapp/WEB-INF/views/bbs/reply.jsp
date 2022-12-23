@@ -96,6 +96,7 @@
 					<input type="hidden" name="ref" value="${read.ref }">				
 					<input type="hidden" name="depth" value="${read.depth }">				
 					<input type="hidden" name="pos" value="${read.pos }">
+					<input type="hidden" name="grade" value="${read.grade }">
 					
 					<input type="hidden" name="nowPage" value="${map.nowPage }" id="nowPage">
 					<input type="hidden" name="ip" value="${ip }">

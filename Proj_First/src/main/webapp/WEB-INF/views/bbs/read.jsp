@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -15,6 +14,7 @@
 	<link rel="stylesheet" href="/resources/style/style_BBS.css">
 	<script src="/resources/source/jquery-3.6.0.min.js"></script>
 	<script src="/resources/script/script_BBS.js"></script>
+	<script src="<c:url value='/jquery/jquery-1.11.1.js' />" type="text/javascript"></script>
 </head>
 
 <body>
@@ -75,7 +75,93 @@
 						<tr>
 							<td colspan="4" id="readContentTd"><pre>${result.content }
 							</pre></td>
-						</tr>					
+						</tr>
+						<tr>
+							<td colspan="4" > 댓글리스트 </td>
+						</tr>
+						<!-- 댓글 리스트 시작 -->
+						<c:forEach var="list" items="${list }" >
+						<tr >
+						<c:choose>
+							<c:when test="${list.c_sign ==2 }">
+								<td colspan="4">삭제된 댓글입니다</td>
+							</c:when>
+							<c:when test="${list.c_pos!=0 }">
+							<td>댓글</td>
+							<td >
+								ID : </td>
+								<td id="c_uId1">${list.c_uId }</td>
+								<td >
+									<input type="hidden" id="c_num" name="c_num" value="${list.num }">
+									<textarea name="c_comment" style="width:550px;float: left;" 
+										id="c_comment" readonly="readonly">${list.c_comment }</textarea>
+										<br>&nbsp;
+									<div style="float: right;"><button type="button" id="editBtn" >수정하기</button>
+									<!-- 수정하기 -->
+									<button type="button" id="editBtnOk" hidden="hidden">수정완료</button>
+									<!-- 수정하기 끝 -->
+									<button type="button" id="delBtnOk" >삭제하기</button></div><br>
+									<button id="recomment">댓글 달기</button>
+									<!-- 대댓글달기 -->
+									<div id="recommentInsert" style="display: none">
+										<textarea name="recommentText" style="width:550px;float: left;" 
+											id="recommentText" ></textarea>	<br>&nbsp;
+										<div style="float: right;">
+											<button id="reBtn" >등록하기</button>
+											<button id="reBtnNo" >취소하기</button>
+										</div><br>
+									</div>
+								<!-- 대댓글달기 -->
+								</td>
+							</c:when>
+							<c:otherwise>
+								<td >
+								ID : </td>
+								<td id="c_uId1">${list.c_uId }</td>
+								<td colspan="2" >
+									<input type="hidden" id="c_num" name="c_num" value="${list.num }">
+									<textarea name="c_comment" style="width:550px;float: left;" 
+										id="c_comment" readonly="readonly">${list.c_comment }</textarea>
+										<br>&nbsp;
+									<div style="float: right;"><button type="button" id="editBtn" >수정하기</button>
+									<!-- 수정하기 -->
+									<button type="button" id="editBtnOk" hidden="hidden">수정완료</button>
+									<!-- 수정하기 끝 -->
+									<button type="button" id="delBtnOk" >삭제하기</button></div><br>
+									<button id="recomment">댓글 달기</button>
+									<!-- 대댓글달기 -->
+									<div id="recommentInsert" style="display: none">
+										<textarea name="recommentText" style="width:550px;float: left;" 
+											id="recommentText" ></textarea>	<br>&nbsp;
+										<div style="float: right;">
+											<button id="reBtn" >등록하기</button>
+											<button id="reBtnNo" >취소하기</button>
+										</div><br>
+									</div>
+								<!-- 대댓글달기 -->
+								</td>
+							</c:otherwise>
+						</c:choose>
+						</tr>			
+						</c:forEach>
+						<!-- 댓글 리스트 끝 -->
+						<!-- 댓글달기 -->
+						<tr>
+							<td colspan="4" > 댓글달기! </td>
+						</tr>
+						<tr>
+						<td >
+						ID : </td>
+						<td colspan="3" id="c_uId">${uId_Session }</td>
+						</tr>			
+						<tr>		
+						<td colspan="4" >
+						<textarea name="c_commentIn" style="width:600px;float: left;" 
+							id="c_commentIn">여기에 댓글 입력</textarea>
+						<button type="button" id="commentBtn" >댓글입력</button>
+						</td>
+						</tr>
+						<!-- 댓글 달기 끝 -->
 					</tbody>
 					 
 					<tfoot id="readTblFoot">	

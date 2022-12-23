@@ -24,6 +24,12 @@ public class BbsServiceimp implements BbsService{
 		return this.bbsDao.num();
 	}
 	
+	//댓글 페이지 끝번호 조회하기
+	@Override
+	public int commentnum() {
+		return this.bbsDao.commentnum();
+	}
+	
 	//글쓰기
 	@Override
 	public int write(Map<String, Object>map) {
@@ -60,6 +66,12 @@ public class BbsServiceimp implements BbsService{
 		return this.bbsDao.read(num);
 	}
 	
+	//게시글 읽기(끼워넣기용)
+	@Override
+	public Map<String, Object> read2(int num) {
+		return this.bbsDao.read2(num);
+	}
+	
 	//조회수 증가
 	@Override
 	public int cnt(int num) {
@@ -83,5 +95,61 @@ public class BbsServiceimp implements BbsService{
 	public int replyProc(Map<String, Object> map) {
 		return this.bbsDao.replyProc(map);
 	}
+	
+	//답변달고 글번호 끼워맟주기
+	@Override
+	public int replyProc2(Map<String, Object> map) {
+		return this.bbsDao.replyProc2(map);
+	}
+
+	//답변 달기위한 뎁스 구하기
+	@Override
+	public Map<String, Object> maxpos(Map<String, Object>map) {
+		return this.bbsDao.maxpos(map);
+	}
+
+	//댓글달기
+	@Override
+	public int comment(Map<String, Object> map) {
+		return this.bbsDao.comment(map);
+	}
+	
+	
+	//댓글 맥스포스 찾기
+	@Override
+	public Map<String, Object> maxcpos(Map<String, Object> map) {
+		return this.bbsDao.maxcpos(map);
+	}
+	
+	//댓글 리스트보기
+	@Override
+	public List<Map<String, Object>> commentList(int c_num) {
+		return this.bbsDao.commentList(c_num);
+	}
+	
+	//댓글 찾기
+	@Override
+	public Map<String, Object> searchComment(Map<String, Object> map) {
+		return this.bbsDao.searchComment(map);
+	}
+	
+	//댓글 수정하기
+	@Override
+	public int commentEdit(Map<String, Object> map) {
+		return this.bbsDao.commentEdit(map);
+	}
+	
+	//댓글 삭제하기
+	@Override
+	public int commentDel(Map<String, Object> map) {
+		return this.bbsDao.commentDel(map);
+	}
+	
+	//대댓글 작성하기
+	@Override
+	public int recomment(Map<String, Object> map) {
+		return this.bbsDao.recomment(map);
+	}
+
 	
 }

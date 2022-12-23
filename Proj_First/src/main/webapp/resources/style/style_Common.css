@@ -75,18 +75,16 @@ div#wrap>main>div.joinAgree>div#licenseArea>div.termArea {
 	/*border: 1px solid #000;*/
 }
 #wrap>#joinFrm>div#formArea>button {
-	color: #fff;
-	font-size: 20px;	
+	font-size: 15px;	
 	padding: 6px 20px;
-	border: none;
 	border: 1px solid #eee;
 	border-radius: 4px;
-	background-color: #0080ff;
+	background-color: #c1c1c1;
 	cursor: pointer;
 }
 
 #wrap>#joinFrm>#formArea>button:hover {
-	color: #f6f6f6;
+	background-color: #a8a8a8;
 }
 /*////////////////////////////////////////////////////////////////////*/
 /*////// 회원가입 사용권 동의 끝 /member/joinAgreement.jsp /////// */
@@ -543,12 +541,3 @@ main#main>div#contents h2#indexGuideMsg {
 /*////////////////////////////////////////////////////////////////////*/
 /* header, mainLnb, footer 템플릿 스타일(style_Template.css) 끝 */
 /*////////////////////////////////////////////////////////////////////*/
-
-
-
-
-
-
-
-
-

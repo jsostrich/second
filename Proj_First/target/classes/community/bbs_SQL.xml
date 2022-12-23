@@ -25,17 +25,24 @@
 		]]>
 	</select>
 	
+	<!-- 게시글의 마지막 번호 -->
+	<select id="commentnum" parameterType="HashMap" resultType="int">
+		<![CDATA[
+			select max(num) from comment 
+		]]>
+	</select>
+	
 	<!-- 전체 게시글 보기 -->
 	<select id="list" resultType="HashMap">
 		<![CDATA[
-			select * from tblBoard order by grade, ref , pos
+			select * from tblBoard order by ref desc, pos
 		]]>
 	</select>
 	
 	<!-- 전체 게시글 사이즈 -->
 	<select id="listSize" resultType="int">
 		<![CDATA[
-			select count(*) from tblBoard order by ref , pos 
+			select count(*) from tblBoard order by ref , depth, pos; 
 		]]>
 	</select>
 	
@@ -70,6 +77,13 @@
 		]]>
 	</select>
 	
+	<!-- 게시글 보기2 -->
+	<select id="read2" parameterType="int" resultType="HashMap">
+		<![CDATA[
+			select * from tblBoard where pos = #{pos} 
+		]]>
+	</select>
+	
 	<!-- 조회수 증가 -->
 	<update id="cnt" parameterType="int" >
 		<![CDATA[
@@ -88,15 +102,84 @@
 	<!-- 게시글 삭제 -->
 	<update id="deleteProc" parameterType="int">
 		<![CDATA[
-			update tblBoard set sign = #{sign} where num=#{num}
+			update tblBoard set sign = 2 where num=#{num}
 		]]>
 	</update>
 	
 	<!-- 답변 게시글 작성 -->
 	<insert id="replyProc" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
 		<![CDATA[
-			insert into tblBoard (uId, uName, content, subject, ref, pos, depth, regTM, readCnt, ip) 
-			values (#{uId} , #{uName}, #{content}, #{subject}, #{ref}, #{pos}+1, #{depth}+1, now(), 0, #{ip})
+			insert into tblBoard (uId, uName, content, subject, ref, pos, depth, regTM, readCnt, ip, grade, sign) 
+			values (#{uId} , #{uName}, #{content}, #{subject}, #{ref}, #{pos}+1, #{depth}+1, now(), 0, #{ip},#{grade},1)
 		]]>
 	</insert>
+	
+	<!-- 맥스 게시글 뎁스 -->
+	<select id="maxpos" parameterType="HashMap" resultType="HashMap">
+		<![CDATA[
+			select max(pos) from tblBoard where ref= #{ref} 
+		]]>
+	</select>
+	
+	<!-- 답변 게시글 작성2 끼워넣기 -->
+	<insert id="replyProc2" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
+		<![CDATA[
+			update tblBoard set pos = pos+1
+			where ref = ${ref} and pos > #{pos}
+		]]>
+	</insert>
+	
+	
+	<!-- 코멘트 작성 -->
+	<insert id="comment" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
+		<![CDATA[
+			insert into comment (c_uId, c_uName, c_comment, c_ref, c_pos, c_depth, c_regTM, c_ip, c_grade, c_sign,c_num) 
+			values (#{c_uId} , #{c_uName}, #{c_comment},#{c_ref}, 0, 0, now(), #{c_ip}, #{c_grade},1,#{c_num})
+		]]>
+	</insert>
+	
+	<!-- 게시글의 코멘트 리스트 보기 -->
+	<select id="commentList" resultType="HashMap" parameterType="int">
+		<![CDATA[
+			select * from comment where c_num = #{c_num}  order by c_ref desc, c_pos 
+		]]>
+	</select>
+	
+	<!-- 코멘트 찾기 -->
+	<select id="searchComment" parameterType="HashMap" resultType="HashMap">
+		<![CDATA[
+			select * from comment where num=#{num} 
+		]]>
+	</select>
+	
+	<!-- 코멘트 수정하기 -->
+	<update id="commentEdit" parameterType="HashMap">
+		<![CDATA[
+			update comment set c_comment=#{c_comment} where num=#{num}
+		]]>
+	</update>
+	
+	<!-- 맥스 댓글 포스 -->
+	<select id="maxcpos" parameterType="HashMap" resultType="HashMap">
+		<![CDATA[
+			select max(c_pos) from comment where c_ref= #{c_ref} 
+		]]>
+	</select>
+	
+	<!-- 댓글 삭제하기 -->
+	<update id="commentDel" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
+		<![CDATA[
+			update comment set c_sign = 2 	where num=#{num}
+		]]>
+	</update>
+	
+	<!-- 대댓글 작성하기 -->
+	<insert id="recomment" parameterType="HashMap" useGeneratedKeys="true" keyProperty="no">
+		<![CDATA[
+			insert into comment (c_uId, c_uName, c_comment, c_ref, c_pos, c_depth, c_regTM, c_ip, c_grade, c_sign,c_num) 
+			values (#{c_uId} , #{c_uName}, #{c_comment},#{c_ref}, #{c_pos}+1, 1, now(), #{c_ip}, #{c_grade},1,#{c_num})
+		]]>
+	</insert>
+	
+	
 </mapper>
